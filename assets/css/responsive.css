@@ -1,0 +1,396 @@
+/* ===================================
+   RESPONSIVE STYLES
+   Mobile-first approach with progressive enhancement
+   Base styles are in style.css
+   =================================== */
+
+/* ===================================
+   SMALL MOBILE ADJUSTMENTS (480px+)
+   =================================== */
+@media (min-width: 480px) {
+  .hero-title {
+    font-size: 2.8rem;
+  }
+
+  .mobile-nav-link,
+  .mobile-signup-btn {
+    max-width: 350px;
+  }
+
+  .nav-container {
+    padding: 0 1.5rem;
+  }
+}
+
+/* ===================================
+   TABLET STYLES (768px+)
+   =================================== */
+@media (min-width: 768px) {
+  .logo {
+    max-width: 80px;
+    width: 100%;
+  }
+  /* Navigation - Show desktop menu, hide mobile */
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #fff;
+    padding: 0.2rem 0.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-link {
+    position: relative;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #5801db;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+
+  .nav-link.active::after,
+  .nav-link:hover::after {
+    width: 80%;
+  }
+
+  .nav-link.active {
+    color: #5801db;
+  }
+
+  .signup-btn {
+    display: inline-block;
+    background: #fff;
+    color: #000;
+    padding: 8px 16px;
+  }
+
+  .signup-btn:hover {
+    background-position: right center;
+    background-size: 200% auto;
+    -webkit-animation: pulse 2s infinite;
+    animation: pulse512 1.5s infinite;
+  }
+  @keyframes pulse512 {
+    0% {
+      box-shadow: 0 0 0 0 #05bada66;
+    }
+
+    70% {
+      box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
+    }
+
+    100% {
+      box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+    }
+  }
+
+  .mobile-menu-toggle {
+    display: none;
+  }
+
+  /* Hero Section - Two column layout */
+  .hero-title {
+    font-size: 3.5rem;
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    text-align: left;
+  }
+
+  .hero-text {
+    order: 1;
+  }
+
+  .hero-description {
+    order: 2;
+    text-align: left;
+  }
+
+  .hero-description p {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .logo {
+    max-width: max-content;
+  }
+  .nav-menu {
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+  }
+  .nav-link {
+    font-size: 0.9rem;
+    padding: 0.3rem 0.5rem;
+  }
+
+  .signup-btn {
+    padding: 0.9rem 1.2rem;
+  }
+}
+
+/* ===================================
+   DESKTOP STYLES (1024px+)
+   =================================== */
+@media (min-width: 1024px) {
+  /* Enhanced navigation */
+  .nav-container {
+    padding: 0 2rem;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+  }
+
+  .signup-btn {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+
+  /* Hero enhancements */
+  .hero-title {
+    font-size: 4rem;
+    line-height: 1.1;
+  }
+
+  .hero-description p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+
+  .hero-container {
+    padding: 4rem 2rem;
+  }
+
+  .hero-content {
+    gap: 6rem;
+  }
+
+  .icon-circle {
+    width: 120px;
+    height: 120px;
+  }
+
+  .cta-button {
+    padding: 1.25rem 2.5rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* ===================================
+   LARGE DESKTOP (1440px+)
+   =================================== */
+@media (min-width: 1200px) {
+  .signup-btn {
+    padding: 1rem 2.5rem;
+  }
+  .hero-title {
+    font-size: 4.5rem;
+  }
+
+  .hero-container {
+    padding: 6rem 2rem;
+  }
+
+  .nav-container {
+    max-width: 1400px;
+  }
+
+  .hero-container {
+    max-width: 1400px;
+  }
+}
+
+/* ===================================
+   MOBILE-SPECIFIC RESPONSIVE BEHAVIOR
+   =================================== */
+@media (max-width: 767px) {
+  /* Ensure mobile menu functionality */
+  .mobile-menu-toggle {
+    display: flex !important;
+  }
+
+  .nav-menu {
+    display: none !important;
+  }
+
+  .signup-btn {
+    display: none !important;
+  }
+
+  /* Enhanced mobile menu animations */
+  .mobile-menu.active {
+    display: flex;
+  }
+
+  /* Prevent scroll when menu is open */
+  body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
+
+  /* Reset animations when menu closes */
+  .mobile-menu:not(.active) .mobile-nav-link,
+  .mobile-menu:not(.active) .mobile-signup-btn {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: none;
+  }
+}
+
+/* ===================================
+   DESKTOP-SPECIFIC BEHAVIOR
+   =================================== */
+@media (min-width: 768px) {
+  /* Force hide mobile elements on desktop */
+  .mobile-menu-toggle {
+    display: none !important;
+  }
+
+  .mobile-menu {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+
+  /* Ensure body scroll is restored on desktop */
+  body.menu-open {
+    overflow: visible !important;
+    position: static !important;
+  }
+
+  /* Smaller hero adjustments */
+  .hero {
+    padding-top: 70px;
+  }
+
+  .hero-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero-description p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-button {
+    padding: 0.875rem 1.75rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* ===================================
+   ACCESSIBILITY & PERFORMANCE
+   =================================== */
+
+/* Loading Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-title,
+.hero-description {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* ===================================
+   HIGH DPI DISPLAYS
+   =================================== */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .hero {
+    background-image: url("../images/banner-bg@2x.png");
+  }
+}
+
+/* ===================================
+   PRINT STYLES
+   =================================== */
+@media print {
+  .navbar,
+  .mobile-menu,
+  .mobile-menu-toggle,
+  .signup-btn,
+  .cta-button {
+    display: none !important;
+  }
+
+  .hero {
+    background: none !important;
+    color: #000 !important;
+    min-height: auto;
+  }
+
+  .hero-title,
+  .hero-description p {
+    color: #000 !important;
+  }
+
+  .gradient-text {
+    -webkit-text-fill-color: #000 !important;
+    background: none !important;
+  }
+}
+
+/* ===================================
+   LANDSCAPE MOBILE ADJUSTMENTS
+   =================================== */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    min-height: 80vh;
+    padding-top: 60px;
+  }
+
+  .mobile-menu {
+    padding: 80px 2rem 1rem;
+  }
+}
+
+/* ===================================
+   REDUCED MOTION PREFERENCES
+   =================================== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .hero-title,
+  .hero-description {
+    animation: none !important;
+  }
+
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
