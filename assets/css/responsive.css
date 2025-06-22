@@ -20,7 +20,7 @@
   .nav-container {
     padding: 0 1.5rem;
   }
-  .welcome-title {
+  .heading-title {
     font-size: 1.8rem;
   }
 }
@@ -172,7 +172,7 @@
     align-items: baseline;
     grid-template-columns: repeat(2, 1fr);
   }
-  .welcome-title {
+  .heading-title {
     font-size: 1.8rem;
     text-align: left;
   }
@@ -292,7 +292,7 @@
     gap: 4rem;
   }
 
-  .welcome-title {
+  .heading-title {
     font-size: 2.7rem;
   }
   .stats-card {
