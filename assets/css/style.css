@@ -1079,7 +1079,8 @@ body.menu-open {
   padding: 1rem;
 }
 
-.map-sec-right h2 {
+.map-sec-right h2,
+.expense-sec-left h2 {
   font-size: 2rem;
   font-weight: 500;
   line-height: 1.3;
@@ -1087,7 +1088,8 @@ body.menu-open {
   color: #222;
 }
 
-.map-sec-right p {
+.map-sec-right p,
+.expense-sec-left p {
   font-size: 1rem;
   font-weight: 400;
   color: #666;
@@ -1095,7 +1097,8 @@ body.menu-open {
   margin-bottom: 1.5rem;
 }
 
-.map-sec-right .learn-more {
+.map-sec-right .learn-more,
+.expense-sec-left .learn-more {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -1108,4 +1111,78 @@ body.menu-open {
   background: #5801db;
   color: #fff;
   transform: translateY(-2px);
+}
+.expense-sec {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+  padding: 3rem 0;
+}
+.expense-sec-right {
+  padding: 30px;
+  background-color: #9c77cf0d;
+  border-radius: 16px;
+}
+/* ===================================
+   EXPENSE SECTION - MOBILE FIRST
+   =================================== */
+.transaction-details {
+  background-color: #fff;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 1rem;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.transaction-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+.transaction-status {
+  background-color: #178bdf14;
+  padding: 0.3rem 1rem;
+  border-radius: 16px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.transaction-id {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #666;
+}
+.per-name-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+.per-name-text {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.per-name-type {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #666;
+}
+.transaction-amount {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.transaction-status-icon {
+  background-color: #f0f9ff;
+  padding: 0.5rem;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border-radius: 50%;
+}
+.transaction-status-icon i {
+  color: #000;
+  font-size: 1.2rem;
 }
