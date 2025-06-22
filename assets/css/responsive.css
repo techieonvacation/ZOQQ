@@ -126,6 +126,44 @@
     margin-left: 0;
     margin-right: 0;
   }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 2.5rem;
+    padding: 0 2rem;
+  }
+  .footer-main {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 3rem;
+  }
+  .footer-brand {
+    flex: 1 1 320px;
+    max-width: 340px;
+  }
+  .footer-links {
+    flex: 3 1 0;
+    flex-direction: row;
+    gap: 2.5rem;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .footer-col {
+    min-width: 160px;
+    flex: 1 1 0;
+  }
+  .footer-bottom {
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 2rem;
+  }
+  .footer-copyright {
+    margin-left: 2rem;
+  }
+  .footer-backtotop {
+    margin-left: auto;
+  }
 }
 
 @media (min-width: 992px) {
@@ -209,12 +247,15 @@
     padding: 6rem 2rem;
   }
 
-  .nav-container {
+  .hero-container {
     max-width: 1400px;
   }
 
-  .hero-container {
-    max-width: 1400px;
+  .footer-main {
+    gap: 5rem;
+  }
+  .footer-links {
+    gap: 4rem;
   }
 }
 
@@ -253,6 +294,49 @@
     opacity: 0;
     transform: translateY(20px);
     animation: none;
+  }
+
+  .slider {
+    height: 80px;
+    margin-bottom: 0.5rem;
+  }
+
+  .slide-track {
+    width: calc(160px * 12);
+  }
+
+  .slide {
+    flex: 0 0 160px;
+    height: 80px;
+    padding: 0 15px;
+  }
+
+  .slide img {
+    max-width: 130px;
+    max-height: 60px;
+  }
+
+  .slider::before,
+  .slider::after {
+    width: 100px;
+  }
+
+  @keyframes scrollLeft {
+    0% {
+      transform: translateX(0) translateZ(0);
+    }
+    100% {
+      transform: translateX(calc(-160px * 6)) translateZ(0);
+    }
+  }
+
+  @keyframes scrollRight {
+    0% {
+      transform: translateX(calc(-160px * 6)) translateZ(0);
+    }
+    100% {
+      transform: translateX(0) translateZ(0);
+    }
   }
 }
 
@@ -392,5 +476,13 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+  .slider-left .slide-track,
+  .slider-right .slide-track {
+    animation: none;
+  }
+
+  .slide img {
+    transition: none;
   }
 }

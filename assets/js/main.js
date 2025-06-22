@@ -32,7 +32,7 @@ const CONFIG = {
     
     // Selectors
     SELECTORS: {
-        navbar: '.navbar',
+        header: '.header',
         mobileMenuToggle: '.mobile-menu-toggle',
         mobileMenu: '.mobile-menu',
         mobileNavLinks: '.mobile-nav-link',
@@ -365,8 +365,8 @@ const ScrollEffects = {
         // Cache DOM elements
         this.cacheElements();
         
-        // Bind scroll events if navbar exists
-        if (this.elements.navbar) {
+        // Bind scroll events if header exists
+        if (this.elements.header) {
             this.bindEvents();
             this.state.isInitialized = true;
             console.log('✅ Scroll Effects initialized');
@@ -380,7 +380,7 @@ const ScrollEffects = {
      */
     cacheElements() {
         this.elements = {
-            navbar: safeQuerySelector(CONFIG.SELECTORS.navbar)
+            header: safeQuerySelector(CONFIG.SELECTORS.header)
         };
     },
 
@@ -426,9 +426,9 @@ const ScrollEffects = {
      */
     updateNavbarStyles(scrollTop) {
         if (scrollTop > CONFIG.NAVBAR_SCROLL_THRESHOLD) {
-            this.elements.navbar.classList.add('scrolled');
+            this.elements.header.classList.add('scrolled');
         } else {
-            this.elements.navbar.classList.remove('scrolled');
+            this.elements.header.classList.remove('scrolled');
         }
     },
 
@@ -441,9 +441,9 @@ const ScrollEffects = {
         const isScrolledPastThreshold = scrollTop > CONFIG.NAVBAR_HIDE_THRESHOLD;
 
         if (isScrollingDown && isScrolledPastThreshold) {
-            this.elements.navbar.style.transform = 'translateY(-100%)';
+            this.elements.header.style.transform = 'translateY(-100%)';
         } else {
-            this.elements.navbar.style.transform = 'translateY(0)';
+            this.elements.header.style.transform = 'translateY(0)';
         }
     },
 
@@ -1046,3 +1046,4 @@ if (window.location.hostname === 'localhost' || window.location.hostname === '12
     
     console.log('🔧 Development mode active. Access window.ZOQQ_DEBUG for debugging tools.');
 }
+
