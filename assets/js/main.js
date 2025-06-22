@@ -1047,3 +1047,5 @@ if (window.location.hostname === 'localhost' || window.location.hostname === '12
     console.log('🔧 Development mode active. Access window.ZOQQ_DEBUG for debugging tools.');
 }
 
+
+  AOS.init();

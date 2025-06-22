@@ -20,6 +20,9 @@
   .nav-container {
     padding: 0 1.5rem;
   }
+  .welcome-title {
+    font-size: 1.8rem;
+  }
 }
 
 /* ===================================
@@ -164,6 +167,28 @@
   .footer-backtotop {
     margin-left: auto;
   }
+
+  .welcome-header {
+    align-items: baseline;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .welcome-title {
+    font-size: 1.8rem;
+    text-align: left;
+  }
+  .welcome-desc {
+    font-size: 1rem;
+    text-align: left;
+  }
+  .stats-card {
+    padding: 1rem 1.2rem 1.5rem 1.2rem;
+  }
+  .stats-value {
+    font-size: 2.3rem;
+  }
+  .stats-label {
+    font-size: 1.05rem;
+  }
 }
 
 @media (min-width: 992px) {
@@ -181,6 +206,11 @@
 
   .signup-btn {
     padding: 0.9rem 1.2rem;
+  }
+  .stats-cards {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    align-items: center;
   }
 }
 
@@ -230,6 +260,10 @@
     padding: 1.25rem 2.5rem;
     font-size: 1.1rem;
   }
+  .welcome-desc {
+    font-size: 1.1rem;
+    font-weight: 400;
+  }
 }
 
 /* ===================================
@@ -256,6 +290,18 @@
   }
   .footer-links {
     gap: 4rem;
+  }
+
+  .welcome-title {
+    font-size: 2.7rem;
+  }
+  .stats-card {
+    min-width: 220px;
+    max-width: 300px;
+    padding: 2.5rem 1.5rem 2rem 1.5rem;
+  }
+  .stats-value {
+    font-size: 2.7rem;
   }
 }
 
