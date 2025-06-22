@@ -112,7 +112,7 @@
 
   .hero-content {
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 2rem;
     text-align: left;
   }
 
@@ -190,6 +190,24 @@
   .stats-label {
     font-size: 1.05rem;
   }
+
+  /* Integrated Solutions Section */
+  .map-sec {
+    grid-template-columns: 55% 45%;
+    gap: 3rem;
+  }
+
+  .map-sec-right {
+    padding: 2rem;
+  }
+
+  .map-sec-right h2 {
+    font-size: 2.2rem;
+  }
+
+  .map-sec-right p {
+    font-size: 1.1rem;
+  }
 }
 
 @media (min-width: 992px) {
@@ -212,6 +230,19 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
     align-items: center;
+  }
+
+  /* Integrated Solutions Section */
+  .map-sec {
+    gap: 2rem;
+  }
+
+  .map-sec-card {
+    padding: 1.5rem;
+  }
+
+  .map-sec-right h2 {
+    font-size: 2.5rem;
   }
 }
 
@@ -303,6 +334,20 @@
   }
   .stats-value {
     font-size: 2.7rem;
+  }
+
+  /* Integrated Solutions Section */
+
+  .map-sec-right {
+    padding: 3rem;
+  }
+
+  .map-sec-right h2 {
+    font-size: 2.8rem;
+  }
+
+  .map-sec-right p {
+    font-size: 1.2rem;
   }
 }
 
