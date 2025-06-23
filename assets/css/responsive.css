@@ -446,6 +446,11 @@
     padding: 2.5rem 2rem;
   }
 
+  .search-interface {
+    min-height: 450px;
+    padding: 2rem 0;
+  }
+
   .search-input {
     font-size: 1.05rem;
     padding: 1.1rem 1.1rem 1.1rem 3.2rem;
@@ -725,6 +730,12 @@
   .search-sec-right-content {
     padding: 3rem 2.5rem;
   }
+
+  .search-interface {
+    min-height: 500px;
+    padding: 2.5rem 0;
+  }
+
 
   .search-input {
     font-size: 1.1rem;
@@ -1219,6 +1230,11 @@
   /* Search Section - Small Mobile */
   .search-sec-right-content {
     padding: 1.5rem 1rem;
+  }
+
+  .search-interface {
+    min-height: 300px;
+    padding: 1rem 0;
   }
 
   .search-input {

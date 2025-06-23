@@ -1051,7 +1051,7 @@ const SearchInterface = {
         this.cacheElements();
         
         // Initialize if elements exist
-        if (this.elements.searchInput && this.elements.suggestions) {
+        if (this.elements.searchInterface && this.elements.suggestions) {
             this.bindEvents();
             this.startAnimationSequence();
             this.state.isInitialized = true;
@@ -1065,10 +1065,15 @@ const SearchInterface = {
     cacheElements() {
         this.elements = {
             searchInput: safeQuerySelector('#searchInput'),
+            searchInputFinal: safeQuerySelector('#searchInputFinal'),
             suggestions: safeQuerySelector('#searchSuggestions'),
-            searchInterface: safeQuerySelector('.search-interface'),
+            searchInterface: safeQuerySelector('#searchInterface'),
             suggestionItems: safeQuerySelectorAll('.suggestion-item'),
-            searchWrapper: safeQuerySelector('.search-input-wrapper')
+            searchWrapper: safeQuerySelector('.search-input-wrapper'),
+            phaseIcon: safeQuerySelector('#phaseIcon'),
+            phaseInput: safeQuerySelector('#phaseInput'),
+            phaseProcessing: safeQuerySelector('#phaseProcessing'),
+            phaseResults: safeQuerySelector('#phaseResults')
         };
     },
 
@@ -1094,53 +1099,106 @@ const SearchInterface = {
     },
 
     /**
-     * Start the animation sequence
+     * Start the creative animation sequence
      */
     startAnimationSequence() {
-        // Simulate typing after page load
+        // Phase 1: Search Icon (0.5s delay, 2.5s duration)
+        this.showPhase('phaseIcon');
+        
+        // Phase 2: Input Field (3s delay)
         setTimeout(() => {
-            this.simulateTyping();
-        }, 2000);
+            this.hidePhase('phaseIcon');
+            this.showPhase('phaseInput');
+            this.startTypingAnimation();
+        }, 3000);
+        
+        // Phase 3: AI Processing (5.5s delay)
+        setTimeout(() => {
+            this.hidePhase('phaseInput');
+            this.showPhase('phaseProcessing');
+        }, 5500);
+        
+        // Phase 4: Results (7.5s delay)
+        setTimeout(() => {
+            this.hidePhase('phaseProcessing');
+            this.showPhase('phaseResults');
+            this.showSuggestions();
+        }, 7500);
     },
 
     /**
-     * Simulate typing animation
+     * Show specific phase
      */
-    simulateTyping() {
+    showPhase(phaseId) {
+        const phase = document.getElementById(phaseId);
+        if (phase) {
+            phase.style.display = 'block';
+        }
+    },
+
+    /**
+     * Hide specific phase
+     */
+    hidePhase(phaseId) {
+        const phase = document.getElementById(phaseId);
+        if (phase) {
+            setTimeout(() => {
+                phase.style.display = 'none';
+            }, 500);
+        }
+    },
+
+    /**
+     * Start typing animation
+     */
+    startTypingAnimation() {
+        const searchInput = document.getElementById('searchInput');
         const targetText = "Jack I";
         let currentText = "";
         let index = 0;
 
+        if (!searchInput) return;
+
         const typeInterval = setInterval(() => {
             if (index < targetText.length) {
                 currentText += targetText[index];
-                this.elements.searchInput.value = currentText;
-                this.elements.searchInput.dispatchEvent(new Event('input'));
+                searchInput.value = currentText;
                 index++;
             } else {
                 clearInterval(typeInterval);
-                // Trigger suggestions appear after typing
-                setTimeout(() => {
-                    this.showSuggestions();
-                }, 500);
             }
         }, 200);
     },
 
     /**
-     * Show suggestions with animation
+     * Show suggestions with enhanced animation
      */
     showSuggestions() {
-        this.elements.suggestions.style.opacity = '1';
-        this.elements.suggestions.style.transform = 'translateY(0) scale(1)';
-        
-        // Animate suggestion items
+        // Animate suggestion items with staggered entrance
         this.elements.suggestionItems.forEach((item, index) => {
             setTimeout(() => {
                 item.style.opacity = '1';
                 item.style.transform = 'translateX(0)';
-            }, 300 + (index * 200));
+                
+                // Add entrance sound effect (visual feedback)
+                this.addEntranceEffect(item);
+            }, 800 + (index * 300));
         });
+    },
+
+    /**
+     * Add visual entrance effect to suggestion items
+     */
+    addEntranceEffect(item) {
+        // Create a temporary glow effect
+        const originalTransform = item.style.transform;
+        item.style.transform = originalTransform + ' scale(1.05)';
+        item.style.boxShadow = '0 8px 25px rgba(139, 92, 246, 0.3)';
+        
+        setTimeout(() => {
+            item.style.transform = originalTransform;
+            item.style.boxShadow = '';
+        }, 300);
     },
 
     /**

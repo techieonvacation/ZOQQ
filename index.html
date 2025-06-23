@@ -679,49 +679,123 @@
                     <div class="search-sec-right">
             <div class="search-sec-right-content">
                 <!-- Search Interface -->
-                <div class="search-interface">
-                    <!-- Search Input -->
-                    <div class="search-input-container">
-                        <div class="search-input-wrapper">
-                            <i class="fa-solid fa-search search-icon"></i>
-                            <input type="text" class="search-input" placeholder="Jack I" id="searchInput">
-                        </div>
+                <div class="search-interface" id="searchInterface">
+                    <!-- Floating Particles Background -->
+                    <div class="floating-particles">
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
                     </div>
                     
-                    <!-- Search Suggestions -->
-                    <div class="search-suggestions" id="searchSuggestions">
-                        <div class="suggestion-header">
-                            <div class="suggested-by">
-                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=40&h=40&fit=crop&crop=face" alt="Assistant" class="assistant-avatar">
-                                <span class="suggested-text">Suggested by AI</span>
-                                <i class="fa-solid fa-wand-magic-sparkles ai-icon"></i>
+                    <!-- Search Animation States -->
+                    <div class="search-animation-container">
+                        <!-- Phase 1: Search Icon Animation -->
+                        <div class="search-phase phase-icon" id="phaseIcon">
+                            <div class="animated-search-icon">
+                                <i class="fa-solid fa-search"></i>
+                                <div class="pulse-ring"></div>
+                                <div class="pulse-ring delay-1"></div>
+                                <div class="pulse-ring delay-2"></div>
+                            </div>
+                            <div class="search-intro-text">
+                                <span class="text-line">Finding your invoices...</span>
                             </div>
                         </div>
                         
-                        <div class="suggestions-list">
-                            <div class="suggestion-item" data-delay="0.2s">
-                                <div class="suggestion-icon">
-                                    <i class="fa-solid fa-file-invoice"></i>
+                        <!-- Phase 2: Search Input Materialization -->
+                        <div class="search-phase phase-input" id="phaseInput">
+                            <div class="search-input-container">
+                                <div class="search-input-wrapper">
+                                    <div class="input-glow"></div>
+                                    <i class="fa-solid fa-search search-icon"></i>
+                                    <input type="text" class="search-input" placeholder="Search invoices..." id="searchInput">
+                                    <div class="typing-cursor"></div>
                                 </div>
-                                <div class="suggestion-content">
-                                    <h4>Invoice by Jack Belik</h4>
-                                    <span class="invoice-id">#INV-13965</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Phase 3: AI Processing -->
+                        <div class="search-phase phase-processing" id="phaseProcessing">
+                            <div class="ai-processing">
+                                <div class="ai-brain">
+                                    <div class="brain-core"></div>
+                                    <div class="brain-wave"></div>
+                                    <div class="brain-wave delay-1"></div>
+                                    <div class="brain-wave delay-2"></div>
                                 </div>
-                                <div class="suggestion-status paid">
-                                    <span>Paid</span>
+                                <div class="processing-text">
+                                    <span class="processing-label">AI Processing</span>
+                                    <div class="processing-dots">
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Phase 4: Results Window Emergence -->
+                        <div class="search-phase phase-results" id="phaseResults">
+                            <div class="search-input-final">
+                                <div class="search-input-wrapper">
+                                    <i class="fa-solid fa-search search-icon"></i>
+                                    <input type="text" class="search-input" value="Jack I" id="searchInputFinal" readonly>
                                 </div>
                             </div>
                             
-                            <div class="suggestion-item" data-delay="0.4s">
-                                <div class="suggestion-icon">
-                                    <i class="fa-solid fa-file-invoice"></i>
+                            <!-- Search Suggestions Window -->
+                            <div class="search-suggestions" id="searchSuggestions">
+                                <div class="suggestions-window-header">
+                                    <div class="window-controls">
+                                        <div class="control-dot minimize"></div>
+                                        <div class="control-dot maximize"></div>
+                                        <div class="control-dot close"></div>
+                                    </div>
+                                    <div class="suggestion-header">
+                                        <div class="suggested-by">
+                                            <img src="assets/images/exp-icon2.png" alt="Assistant" class="assistant-avatar">
+                                            <span class="suggested-text">Suggested by AI</span>
+                                            <i class="fa-solid fa-wand-magic-sparkles ai-icon"></i>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="suggestion-content">
-                                    <h4>Invoice by Jack Nikelson</h4>
-                                    <span class="invoice-id">#INV-58194</span>
+                                
+                                <div class="suggestions-list">
+                                    <div class="suggestion-item" data-delay="0.2s">
+                                        <div class="suggestion-icon">
+                                            <i class="fa-solid fa-file-invoice"></i>
+                                        </div>
+                                        <div class="suggestion-content">
+                                            <h4>Invoice by Jack Belik</h4>
+                                            <span class="invoice-id">#INV-13965</span>
+                                        </div>
+                                        <div class="suggestion-status paid">
+                                            <span>Paid</span>
+                                        </div>
+                                        <div class="suggestion-glow"></div>
+                                    </div>
+                                    
+                                    <div class="suggestion-item" data-delay="0.4s">
+                                        <div class="suggestion-icon">
+                                            <i class="fa-solid fa-file-invoice"></i>
+                                        </div>
+                                        <div class="suggestion-content">
+                                            <h4>Invoice by Jack Nikelson</h4>
+                                            <span class="invoice-id">#INV-58194</span>
+                                        </div>
+                                        <div class="suggestion-status pending">
+                                            <span>Pending</span>
+                                        </div>
+                                        <div class="suggestion-glow"></div>
+                                    </div>
                                 </div>
-                                <div class="suggestion-status pending">
-                                    <span>Pending</span>
+                                
+                                <!-- Results Footer -->
+                                <div class="suggestions-footer">
+                                    <div class="results-count">2 results found</div>
+                                    <div class="search-time">⚡ 0.03s</div>
                                 </div>
                             </div>
                         </div>
