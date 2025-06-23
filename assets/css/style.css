@@ -7,7 +7,9 @@
 /* ===================================
    NAVIGATION STYLES - MOBILE
    =================================== */
-
+.main{
+  overflow: hidden;
+}
 .header {
   position: fixed;
   top: 0;
@@ -758,6 +760,7 @@ body.menu-open {
 .welcome-section {
   background: #fff;
   padding: 2.5rem 0 1.5rem 0;
+  overflow: hidden;
 }
 .welcome-container {
   display: flex;
@@ -887,75 +890,311 @@ body.menu-open {
   margin-bottom: 1.2rem;
   display: inline-block;
 }
+/* ===================================
+   3D PRODUCT SLIDER CAROUSEL - MOBILE FIRST
+   =================================== */
+
 .product-slider {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  position: relative;
+  height: 180px;
+  width: 100%;
+  perspective: 1000px;
+  perspective-origin: center center;
+  margin-top: 1rem;
 }
+
 .slider-card {
+  position: absolute;
   background: #fff;
   border-radius: 16px;
-  box-shadow: 0 2px 12px 0 rgba(160, 89, 255, 0.06);
+  box-shadow: 0 4px 20px 0 rgba(160, 89, 255, 0.1);
   display: flex;
   flex-direction: column;
-  font-size: 1rem;
-  padding: 1rem 1rem;
+  font-size: 0.9rem;
+  padding: 1rem;
   font-weight: 500;
   color: #222;
+  width: 85%;
+  height: auto;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
 }
+
+/* Initial positions for 3D carousel */
+.slider-card:nth-child(1) {
+  transform: translateX(-20%) translateZ(-100px) rotateY(25deg) scale(0.85);
+  opacity: 0.6;
+  z-index: 1;
+  left: 0;
+}
+
+.slider-card:nth-child(2) {
+  transform: translateX(7.5%) translateY(-10px) translateZ(0px) rotateY(0deg) scale(1);
+  opacity: 1;
+  z-index: 3;
+  left: 0;
+  box-shadow: 0 8px 30px 0 rgba(160, 89, 255, 0.2);
+}
+
+.slider-card:nth-child(3) {
+  transform: translateX(35%) translateZ(-100px) rotateY(-25deg) scale(0.85);
+  opacity: 0.6;
+  z-index: 1;
+  left: 0;
+}
+
+/* Auto-sliding animation */
+.product-slider {
+  animation: autoSlide3D 9s infinite ease-in-out;
+}
+
+@keyframes autoSlide3D {
+  0%, 30% {
+    /* Position 1: Card 1 center, Card 2 right, Card 3 left */
+  }
+  
+  33.33%, 63.33% {
+    /* Position 2: Card 2 center, Card 3 right, Card 1 left */
+  }
+  
+  66.66%, 96.66% {
+    /* Position 3: Card 3 center, Card 1 right, Card 2 left */
+  }
+  
+  100% {
+    /* Back to Position 1 */
+  }
+}
+
+/* Animation states for auto-sliding - Apply to all product sliders */
+.slider-card:nth-child(1) {
+  animation: card1Cycle 9s infinite ease-in-out;
+}
+
+.slider-card:nth-child(2) {
+  animation: card2Cycle 9s infinite ease-in-out;
+}
+
+.slider-card:nth-child(3) {
+  animation: card3Cycle 9s infinite ease-in-out;
+}
+
+/* Staggered animation delays for each product box */
+.product-box:nth-child(1) .slider-card:nth-child(1) {
+  animation-delay: 0s;
+}
+.product-box:nth-child(1) .slider-card:nth-child(2) {
+  animation-delay: 0s;
+}
+.product-box:nth-child(1) .slider-card:nth-child(3) {
+  animation-delay: 0s;
+}
+
+.product-box:nth-child(2) .slider-card:nth-child(1) {
+  animation-delay: 2.25s;
+}
+.product-box:nth-child(2) .slider-card:nth-child(2) {
+  animation-delay: 2.25s;
+}
+.product-box:nth-child(2) .slider-card:nth-child(3) {
+  animation-delay: 2.25s;
+}
+
+.product-box:nth-child(3) .slider-card:nth-child(1) {
+  animation-delay: 4.5s;
+}
+.product-box:nth-child(3) .slider-card:nth-child(2) {
+  animation-delay: 4.5s;
+}
+.product-box:nth-child(3) .slider-card:nth-child(3) {
+  animation-delay: 4.5s;
+}
+
+.product-box:nth-child(4) .slider-card:nth-child(1) {
+  animation-delay: 6.75s;
+}
+.product-box:nth-child(4) .slider-card:nth-child(2) {
+  animation-delay: 6.75s;
+}
+.product-box:nth-child(4) .slider-card:nth-child(3) {
+  animation-delay: 6.75s;
+}
+
+/* Card 1 animation cycle */
+@keyframes card1Cycle {
+  0%, 30% {
+    transform: translateX(7.5%) translateY(-10px) translateZ(0px) rotateY(0deg) scale(1);
+    opacity: 1;
+    z-index: 3;
+    box-shadow: 0 8px 30px 0 rgba(160, 89, 255, 0.2);
+  }
+  
+  33.33%, 63.33% {
+    transform: translateX(-20%) translateZ(-100px) rotateY(25deg) scale(0.85);
+    opacity: 0.6;
+    z-index: 1;
+    box-shadow: 0 4px 20px 0 rgba(160, 89, 255, 0.1);
+  }
+  
+  66.66%, 96.66% {
+    transform: translateX(35%) translateZ(-100px) rotateY(-25deg) scale(0.85);
+    opacity: 0.6;
+    z-index: 1;
+    box-shadow: 0 4px 20px 0 rgba(160, 89, 255, 0.1);
+  }
+  
+  100% {
+    transform: translateX(7.5%) translateY(-10px) translateZ(0px) rotateY(0deg) scale(1);
+    opacity: 1;
+    z-index: 3;
+    box-shadow: 0 8px 30px 0 rgba(160, 89, 255, 0.2);
+  }
+}
+
+/* Card 2 animation cycle */
+@keyframes card2Cycle {
+  0%, 30% {
+    transform: translateX(35%) translateZ(-100px) rotateY(-25deg) scale(0.85);
+    opacity: 0.6;
+    z-index: 1;
+    box-shadow: 0 4px 20px 0 rgba(160, 89, 255, 0.1);
+  }
+  
+  33.33%, 63.33% {
+    transform: translateX(7.5%) translateY(-10px) translateZ(0px) rotateY(0deg) scale(1);
+    opacity: 1;
+    z-index: 3;
+    box-shadow: 0 8px 30px 0 rgba(160, 89, 255, 0.2);
+  }
+  
+  66.66%, 96.66% {
+    transform: translateX(-20%) translateZ(-100px) rotateY(25deg) scale(0.85);
+    opacity: 0.6;
+    z-index: 1;
+    box-shadow: 0 4px 20px 0 rgba(160, 89, 255, 0.1);
+  }
+  
+  100% {
+    transform: translateX(35%) translateZ(-100px) rotateY(-25deg) scale(0.85);
+    opacity: 0.6;
+    z-index: 1;
+    box-shadow: 0 4px 20px 0 rgba(160, 89, 255, 0.1);
+  }
+}
+
+/* Card 3 animation cycle */
+@keyframes card3Cycle {
+  0%, 30% {
+    transform: translateX(-20%) translateZ(-100px) rotateY(25deg) scale(0.85);
+    opacity: 0.6;
+    z-index: 1;
+    box-shadow: 0 4px 20px 0 rgba(160, 89, 255, 0.1);
+  }
+  
+  33.33%, 63.33% {
+    transform: translateX(35%) translateZ(-100px) rotateY(-25deg) scale(0.85);
+    opacity: 0.6;
+    z-index: 1;
+    box-shadow: 0 4px 20px 0 rgba(160, 89, 255, 0.1);
+  }
+  
+  66.66%, 96.66% {
+    transform: translateX(7.5%) translateY(-10px) translateZ(0px) rotateY(0deg) scale(1);
+    opacity: 1;
+    z-index: 3;
+    box-shadow: 0 8px 30px 0 rgba(160, 89, 255, 0.2);
+  }
+  
+  100% {
+    transform: translateX(-20%) translateZ(-100px) rotateY(25deg) scale(0.85);
+    opacity: 0.6;
+    z-index: 1;
+    box-shadow: 0 4px 20px 0 rgba(160, 89, 255, 0.1);
+  }
+}
+
+/* Hover pause effect */
+.product-slider:hover .slider-card {
+  animation-play-state: paused;
+}
+
 .slider-card-title {
-  font-size: 1rem;
-  font-weight: 500;
-  margin-bottom: 22px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #333;
 }
+
 .balance {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
+  color: #222;
 }
+
 .currency {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 700;
   display: inline-block;
   color: rgba(0, 0, 0, 0.5);
 }
+
 .slider-card-btn {
   display: flex;
   gap: 6px;
+  margin-top: 1rem;
 }
+
 .slider-card-btn .btn {
   white-space: nowrap;
-  font-size: 0.6rem;
+  font-size: 0.5rem;
   border-radius: 20px;
   font-weight: 500;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
+
 .fa-wallet {
   color: #222;
   margin-right: 4px;
-  font-size: 0.6rem;
+  font-size: 0.5rem;
 }
+
 .slider-card-btn .btn:nth-child(1) {
   color: #fff;
   background-color: #000;
 }
+
+.slider-card-btn .btn:nth-child(1):hover {
+  background-color: #333;
+  transform: translateY(-1px);
+}
+
 .slider-card-btn .btn:nth-child(1) .fa-wallet {
   color: #fff;
 }
+
 .slider-card-btn .btn:nth-child(2) {
   color: #222;
   background-color: #fff62d;
 }
-.slider-card.active {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-  z-index: 2;
+
+.slider-card-btn .btn:nth-child(2):hover {
+  background-color: #ffed4e;
+  transform: translateY(-1px);
 }
+
 /* ===================================
    INTEGRATED SOLUTIONS SECTION - MOBILE FIRST
    =================================== */
 .integrated-solutions {
   padding: 2.5rem 0 1.5rem 0;
   background: #fff;
+  overflow: hidden;
 }
 
 .map-sec {

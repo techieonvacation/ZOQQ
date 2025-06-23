@@ -1057,24 +1057,283 @@
   }
 }
 
+/* ===================================
+   3D PRODUCT SLIDER RESPONSIVE STYLES
+   =================================== */
+
+/* SMALL MOBILE ADJUSTMENTS (max-width: 480px) */
+@media (max-width: 480px) {
+  .product-slider {
+    height: 125px;
+    perspective: 800px;
+  }
+
+  .slider-card {
+    width: 90%;
+    padding: 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .slider-card-title {
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+  }
+
+  .balance {
+    font-size: 1rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .currency {
+    font-size: 1rem;
+  }
+
+  .slider-card-btn .btn {
+    font-size: 0.45rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .fa-wallet {
+    font-size: 0.45rem;
+  }
+
+  /* Adjust 3D positions for small mobile */
+  .slider-card:nth-child(1) {
+    transform: translateX(-25%) translateZ(-80px) rotateY(20deg) scale(0.8);
+  }
+
+  .slider-card:nth-child(2) {
+    transform: translateX(5%) translateY(-8px) translateZ(0px) rotateY(0deg)
+      scale(1);
+  }
+
+  .slider-card:nth-child(3) {
+    transform: translateX(30%) translateZ(-80px) rotateY(-20deg) scale(0.8);
+  }
+
+  /* Update animation keyframes for small mobile */
+  @keyframes card1Cycle {
+    0%,
+    30% {
+      transform: translateX(5%) translateY(-8px) translateZ(0px) rotateY(0deg)
+        scale(1);
+      opacity: 1;
+      z-index: 3;
+      box-shadow: 0 8px 30px 0 rgba(160, 89, 255, 0.2);
+    }
+
+    33.33%,
+    63.33% {
+      transform: translateX(-25%) translateZ(-80px) rotateY(20deg) scale(0.8);
+      opacity: 0.6;
+      z-index: 1;
+      box-shadow: 0 4px 20px 0 rgba(160, 89, 255, 0.1);
+    }
+
+    66.66%,
+    96.66% {
+      transform: translateX(30%) translateZ(-80px) rotateY(-20deg) scale(0.8);
+      opacity: 0.6;
+      z-index: 1;
+      box-shadow: 0 4px 20px 0 rgba(160, 89, 255, 0.1);
+    }
+
+    100% {
+      transform: translateX(5%) translateY(-8px) translateZ(0px) rotateY(0deg)
+        scale(1);
+      opacity: 1;
+      z-index: 3;
+      box-shadow: 0 8px 30px 0 rgba(160, 89, 255, 0.2);
+    }
+  }
+
+  @keyframes card2Cycle {
+    0%,
+    30% {
+      transform: translateX(30%) translateZ(-80px) rotateY(-20deg) scale(0.8);
+      opacity: 0.6;
+      z-index: 1;
+      box-shadow: 0 4px 20px 0 rgba(160, 89, 255, 0.1);
+    }
+
+    33.33%,
+    63.33% {
+      transform: translateX(5%) translateY(-8px) translateZ(0px) rotateY(0deg)
+        scale(1);
+      opacity: 1;
+      z-index: 3;
+      box-shadow: 0 8px 30px 0 rgba(160, 89, 255, 0.2);
+    }
+
+    66.66%,
+    96.66% {
+      transform: translateX(-25%) translateZ(-80px) rotateY(20deg) scale(0.8);
+      opacity: 0.6;
+      z-index: 1;
+      box-shadow: 0 4px 20px 0 rgba(160, 89, 255, 0.1);
+    }
+
+    100% {
+      transform: translateX(30%) translateZ(-80px) rotateY(-20deg) scale(0.8);
+      opacity: 0.6;
+      z-index: 1;
+      box-shadow: 0 4px 20px 0 rgba(160, 89, 255, 0.1);
+    }
+  }
+
+  @keyframes card3Cycle {
+    0%,
+    30% {
+      transform: translateX(-25%) translateZ(-80px) rotateY(20deg) scale(0.8);
+      opacity: 0.6;
+      z-index: 1;
+      box-shadow: 0 4px 20px 0 rgba(160, 89, 255, 0.1);
+    }
+
+    33.33%,
+    63.33% {
+      transform: translateX(30%) translateZ(-80px) rotateY(-20deg) scale(0.8);
+      opacity: 0.6;
+      z-index: 1;
+      box-shadow: 0 4px 20px 0 rgba(160, 89, 255, 0.1);
+    }
+
+    66.66%,
+    96.66% {
+      transform: translateX(5%) translateY(-8px) translateZ(0px) rotateY(0deg)
+        scale(1);
+      opacity: 1;
+      z-index: 3;
+      box-shadow: 0 8px 30px 0 rgba(160, 89, 255, 0.2);
+    }
+
+    100% {
+      transform: translateX(-25%) translateZ(-80px) rotateY(20deg) scale(0.8);
+      opacity: 0.6;
+      z-index: 1;
+      box-shadow: 0 4px 20px 0 rgba(160, 89, 255, 0.1);
+    }
+  }
+}
+
 @media (min-width: 768px) {
   .core-products-grid {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
   }
   .product-box {
-    min-height: 340px;
+    min-height: 360px;
     padding: 2rem 1.5rem 2.5rem 1.5rem;
   }
+
+  /* Enhanced 3D carousel for tablet */
+  .product-slider {
+    perspective: 1200px;
+    margin-top: 1.5rem;
+  }
+
+  .slider-card {
+    width: 80%;
+    height: 180px;
+    padding: 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  .slider-card-title {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+
+  .balance {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .currency {
+    font-size: 1.3rem;
+  }
+
+  .slider-card-btn .btn {
+    font-size: 0.6rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .fa-wallet {
+    font-size: 0.6rem;
+  }
+
+  /* Refined 3D positions for tablet */
+  .slider-card:nth-child(1) {
+    transform: translateX(-18%) translateZ(-120px) rotateY(30deg) scale(0.9);
+  }
+
+  .slider-card:nth-child(2) {
+    transform: translateX(10%) translateY(-12px) translateZ(0px) rotateY(0deg)
+      scale(1);
+  }
+
+  .slider-card:nth-child(3) {
+    transform: translateX(38%) translateZ(-120px) rotateY(-30deg) scale(0.9);
+  }
 }
+
 @media (min-width: 1200px) {
   .core-products-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 2.5rem;
   }
   .product-box {
-    min-height: 360px;
+    min-height: 380px;
     padding: 2.5rem 2rem 3rem 2rem;
+  }
+
+  /* Premium 3D carousel for desktop */
+  .product-slider {
+    perspective: 1500px;
+    margin-top: 2rem;
+  }
+
+  .slider-card {
+    width: 75%;
+    padding: 1.5rem;
+    font-size: 1rem;
+  }
+
+  .slider-card-title {
+    font-size: 1.1rem;
+    margin-bottom: 18px;
+  }
+
+  .balance {
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .currency {
+    font-size: 1.4rem;
+  }
+
+  .slider-card-btn .btn {
+    font-size: 0.7rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .fa-wallet {
+    font-size: 0.7rem;
+  }
+
+  /* Perfect 3D positions for desktop */
+  .slider-card:nth-child(1) {
+    transform: translateX(-15%) translateZ(-150px) rotateY(35deg) scale(0.9);
+  }
+
+  .slider-card:nth-child(2) {
+    transform: translateX(12.5%) translateY(-15px) translateZ(0px) rotateY(0deg)
+      scale(1);
+  }
+
+  .slider-card:nth-child(3) {
+    transform: translateX(40%) translateZ(-150px) rotateY(-35deg) scale(0.9);
   }
 }
 
