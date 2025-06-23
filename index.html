@@ -676,9 +676,57 @@
                 </p>
                 <button class="btn learn-more">Learn More <i class="fa-solid fa-arrow-right"></i></button>
             </div>
-            <div class="search-sec-right">
-                <div class="search-sec-right-content">
-                  
+                    <div class="search-sec-right">
+            <div class="search-sec-right-content">
+                <!-- Search Interface -->
+                <div class="search-interface">
+                    <!-- Search Input -->
+                    <div class="search-input-container">
+                        <div class="search-input-wrapper">
+                            <i class="fa-solid fa-search search-icon"></i>
+                            <input type="text" class="search-input" placeholder="Jack I" id="searchInput">
+                        </div>
+                    </div>
+                    
+                    <!-- Search Suggestions -->
+                    <div class="search-suggestions" id="searchSuggestions">
+                        <div class="suggestion-header">
+                            <div class="suggested-by">
+                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=40&h=40&fit=crop&crop=face" alt="Assistant" class="assistant-avatar">
+                                <span class="suggested-text">Suggested by AI</span>
+                                <i class="fa-solid fa-wand-magic-sparkles ai-icon"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="suggestions-list">
+                            <div class="suggestion-item" data-delay="0.2s">
+                                <div class="suggestion-icon">
+                                    <i class="fa-solid fa-file-invoice"></i>
+                                </div>
+                                <div class="suggestion-content">
+                                    <h4>Invoice by Jack Belik</h4>
+                                    <span class="invoice-id">#INV-13965</span>
+                                </div>
+                                <div class="suggestion-status paid">
+                                    <span>Paid</span>
+                                </div>
+                            </div>
+                            
+                            <div class="suggestion-item" data-delay="0.4s">
+                                <div class="suggestion-icon">
+                                    <i class="fa-solid fa-file-invoice"></i>
+                                </div>
+                                <div class="suggestion-content">
+                                    <h4>Invoice by Jack Nikelson</h4>
+                                    <span class="invoice-id">#INV-58194</span>
+                                </div>
+                                <div class="suggestion-status pending">
+                                    <span>Pending</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
