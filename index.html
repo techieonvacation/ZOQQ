@@ -433,7 +433,7 @@
                 </div>
                 <div class="expense-sec-right">
                     <div class="transaction-list">
-                        <div class="transaction-item" data-aos="fade-left" data-aos-delay="100">
+                        <div class="transaction-item" style="animation-play-state: paused;">
                             <div class="transaction-details">
                                 <div class="transaction-status-icon">
                                     <i class="fa-solid fa-file-invoice"></i>
@@ -443,55 +443,131 @@
                                     <div class="transaction-id">#INV-12345</div>
                                 </div>
                                 <div class="transaction-status">Review</div>
-
                                 <i class="fa-solid fa-calendar-days"></i>
                                 <div class="per-name-wrap">
                                     <span class="per-name-text">Mike Brown</span>
                                     <span class="per-name-type">Salary</span>
                                 </div>
-                                <div class="transaction-amount">2,321.59 EUR</div>
+                                <div class="transaction-amount">+2,321.59 EUR</div>
                             </div>
                         </div>
 
-                        <div class="transaction-item" data-aos="fade-left" data-aos-delay="200">
-
+                        <div class="transaction-item" style="animation-play-state: paused;">
                             <div class="transaction-details">
                                 <div class="transaction-status-icon">
-                                    <i class="fa-solid fa-file-invoice"></i>
+                                    <i class="fa-solid fa-arrow-right-arrow-left"></i>
                                 </div>
                                 <div class="transaction-title-wrap">
-                                    <div class="transaction-title">Invoice</div>
-                                    <div class="transaction-id">#INV-12345</div>
+                                    <div class="transaction-title">Transfer</div>
+                                    <div class="transaction-id">#TRF-67890</div>
                                 </div>
                                 <div class="transaction-status">Paid</div>
                                 <i class="fa-solid fa-calendar-days"></i>
                                 <div class="per-name-wrap">
                                     <span class="per-name-text">Ann Petrovitz</span>
-                                    <span class="per-name-type">Salary</span>
+                                    <span class="per-name-type">Expense</span>
                                 </div>
-                                <div class="transaction-amount">-2,321.59 EUR</div>
+                                <div class="transaction-amount">-1,850.00 EUR</div>
                             </div>
-
                         </div>
 
-                        <div class="transaction-item" data-aos="fade-left" data-aos-delay="300">
-
+                        <div class="transaction-item" style="animation-play-state: paused;">
                             <div class="transaction-details">
                                 <div class="transaction-status-icon">
-                                    <i class="fa-solid fa-file-invoice"></i>
+                                    <i class="fa-solid fa-credit-card"></i>
                                 </div>
                                 <div class="transaction-title-wrap">
-                                    <div class="transaction-title">Invoice</div>
-                                    <div class="transaction-id">#INV-12345</div>
+                                    <div class="transaction-title">Payment</div>
+                                    <div class="transaction-id">#PAY-54321</div>
                                 </div>
                                 <div class="transaction-status pending">Pending</div>
                                 <i class="fa-solid fa-calendar-days"></i>
                                 <div class="per-name-wrap">
                                     <span class="per-name-text">John Clause</span>
-                                    <span class="per-name-type">Salary</span>
+                                    <span class="per-name-type">Vendor</span>
                                 </div>
-                                <div class="transaction-amount">-2,321.59 EUR</div>
+                                <div class="transaction-amount">-950.75 EUR</div>
                             </div>
+                        </div>
+
+                        <div class="transaction-item" style="animation-play-state: paused;">
+                            <div class="transaction-details">
+                                <div class="transaction-status-icon">
+                                    <i class="fa-solid fa-building-columns"></i>
+                                </div>
+                                <div class="transaction-title-wrap">
+                                    <div class="transaction-title">Deposit</div>
+                                    <div class="transaction-id">#DEP-98765</div>
+                                </div>
+                                <div class="transaction-status">Completed</div>
+                                <i class="fa-solid fa-calendar-days"></i>
+                                <div class="per-name-wrap">
+                                    <span class="per-name-text">Sarah Wilson</span>
+                                    <span class="per-name-type">Income</span>
+                                </div>
+                                <div class="transaction-amount">+3,500.00 EUR</div>
+                            </div>
+                        </div>
+
+                        <div class="transaction-item" style="animation-play-state: paused;">
+                            <div class="transaction-details">
+                                <div class="transaction-status-icon">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </div>
+                                <div class="transaction-title-wrap">
+                                    <div class="transaction-title">Purchase</div>
+                                    <div class="transaction-id">#PUR-11223</div>
+                                </div>
+                                <div class="transaction-status">Processing</div>
+                                <i class="fa-solid fa-calendar-days"></i>
+                                <div class="per-name-wrap">
+                                    <span class="per-name-text">Mark Davis</span>
+                                    <span class="per-name-type">Equipment</span>
+                                </div>
+                                <div class="transaction-amount">-675.25 EUR</div>
+                            </div>
+                        </div>
+
+                        <div class="transaction-item" style="animation-play-state: paused;">
+                            <div class="transaction-details">
+                                <div class="transaction-status-icon">
+                                    <i class="fa-solid fa-money-bill-transfer"></i>
+                                </div>
+                                <div class="transaction-title-wrap">
+                                    <div class="transaction-title">Refund</div>
+                                    <div class="transaction-id">#REF-44556</div>
+                                </div>
+                                <div class="transaction-status">Completed</div>
+                                <i class="fa-solid fa-calendar-days"></i>
+                                <div class="per-name-wrap">
+                                    <span class="per-name-text">Lisa Chen</span>
+                                    <span class="per-name-type">Return</span>
+                                </div>
+                                <div class="transaction-amount">+1,200.00 EUR</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-icons">
+                        <div class="circle">
+                            <img src="assets/images/exp-icon1.png" alt="Expense Icon">
+                        </div>
+                        <div class="circle">
+                            <img src="assets/images/exp-icon2.png" alt="Expense Icon">
+                        </div>
+                        <div class="circle active">
+                            <img src="assets/images/exp-icon3.png" alt="Expense Icon">
+                        </div>
+                        <div class="circle">
+                            <img src="assets/images/exp-icon4.png" alt="Expense Icon">
+                        </div>
+                        <div class="circle">
+                            <img src="assets/images/exp-icon5.png" alt="Expense Icon">
+                        </div>
+                        <div class="circle">
+                            <img src="assets/images/exp-icon6.png" alt="Expense Icon">
+                        </div>
+                        <div class="circle">
+                            <img src="assets/images/exp-icon7.png" alt="Expense Icon">
                         </div>
                     </div>
                 </div>

@@ -465,7 +465,9 @@ const AnimationModule = {
     // State management
     state: {
         observer: null,
-        isInitialized: false
+        transactionObserver: null,
+        isInitialized: false,
+        hasTransactionAnimated: false
     },
 
     /**
@@ -476,6 +478,9 @@ const AnimationModule = {
 
         // Setup Intersection Observer
         this.setupIntersectionObserver();
+        
+        // Setup Transaction Animation Observer
+        this.setupTransactionObserver();
         
         // Observe elements
         this.observeElements();
@@ -507,6 +512,191 @@ const AnimationModule = {
                 }
             });
         }, options);
+    },
+
+    /**
+     * Setup specialized observer for transaction section
+     */
+    setupTransactionObserver() {
+        if (!window.IntersectionObserver) return;
+
+        const options = {
+            threshold: 0.3,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        this.state.transactionObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting && !this.state.hasTransactionAnimated) {
+                    this.animateTransactionSection(entry.target);
+                    this.state.hasTransactionAnimated = true;
+                }
+            });
+        }, options);
+
+        // Observe transaction section
+        const transactionSection = safeQuerySelector('.expense-sec-right');
+        if (transactionSection) {
+            this.state.transactionObserver.observe(transactionSection);
+        }
+    },
+
+    /**
+     * Animate transaction section with sophisticated effects
+     * @param {Element} section - Transaction section element
+     */
+    animateTransactionSection(section) {
+        console.log('🔄 Starting transaction animation sequence');
+
+        // First, trigger the transaction items to appear one by one
+        const transactionItems = safeQuerySelectorAll('.transaction-item');
+        transactionItems.forEach((item, index) => {
+            setTimeout(() => {
+                item.style.animationPlayState = 'running';
+                
+                // Add subtle pulse effect
+                setTimeout(() => {
+                    item.style.transform = 'scale(1.02)';
+                    setTimeout(() => {
+                        item.style.transform = 'scale(1)';
+                    }, 150);
+                }, 400);
+            }, index * 200);
+        });
+
+        // Then animate the circles
+        setTimeout(() => {
+            this.animateCircles();
+        }, transactionItems.length * 200 + 500);
+
+        // Finally start the infinite scroll after all elements appear
+        setTimeout(() => {
+            const transactionList = safeQuerySelector('.transaction-list');
+            if (transactionList) {
+                transactionList.style.animationPlayState = 'running';
+                console.log('♾️ Transaction infinite scroll started');
+            }
+        }, transactionItems.length * 200 + 2000);
+    },
+
+    /**
+     * Animate avatar circles with creative effects
+     */
+    animateCircles() {
+        const circles = safeQuerySelectorAll('.circle');
+        circles.forEach((circle, index) => {
+            setTimeout(() => {
+                circle.style.animationPlayState = 'running';
+                
+                // Add special effects for active circle
+                if (circle.classList.contains('active')) {
+                    setTimeout(() => {
+                        // Add extra glow animation
+                        circle.style.animation += ', activeGlow 2s ease-in-out infinite alternate';
+                        
+                        // Start the rotating gradient border
+                        const afterElement = circle.querySelector('::after');
+                        if (afterElement) {
+                            afterElement.style.animationPlayState = 'running';
+                        }
+                    }, 800);
+                }
+                
+                // Add interactive hover listeners
+                this.addCircleInteractions(circle, index);
+            }, index * 200);
+        });
+        
+        console.log('👤 Avatar circles animation started');
+    },
+
+    /**
+     * Add interactive effects to avatar circles
+     * @param {Element} circle - Circle element
+     * @param {number} index - Circle index
+     */
+    addCircleInteractions(circle, index) {
+        // Add click handler for avatar selection
+        circle.addEventListener('click', () => {
+            this.selectAvatar(circle, index);
+        });
+
+        // Add mouse enter effect
+        circle.addEventListener('mouseenter', () => {
+            // Create ripple effect
+            this.createRippleEffect(circle);
+        });
+
+        // Add double-click for special animation
+        circle.addEventListener('dblclick', () => {
+            this.triggerSpecialAnimation(circle);
+        });
+    },
+
+    /**
+     * Select avatar and update active state
+     * @param {Element} selectedCircle - Selected circle element
+     * @param {number} index - Circle index
+     */
+    selectAvatar(selectedCircle, index) {
+        // Remove active class from all circles
+        const allCircles = safeQuerySelectorAll('.circle');
+        allCircles.forEach(circle => {
+            circle.classList.remove('active');
+        });
+
+        // Add active class to selected circle
+        selectedCircle.classList.add('active');
+
+        // Trigger selection animation
+        selectedCircle.style.animation = 'avatarAppear 0.5s ease-out, activeGlow 2s ease-in-out infinite alternate';
+
+        console.log(`👤 Avatar ${index + 1} selected`);
+    },
+
+    /**
+     * Create ripple effect on hover
+     * @param {Element} circle - Circle element
+     */
+    createRippleEffect(circle) {
+        const ripple = document.createElement('div');
+        ripple.style.cssText = `
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(139, 92, 246, 0.3);
+            transform: translate(-50%, -50%);
+            animation: rippleExpand 0.6s ease-out;
+            pointer-events: none;
+            z-index: 1;
+        `;
+
+        circle.appendChild(ripple);
+
+        // Remove ripple after animation
+        setTimeout(() => {
+            if (ripple.parentNode) {
+                ripple.parentNode.removeChild(ripple);
+            }
+        }, 600);
+    },
+
+    /**
+     * Trigger special animation on double-click
+     * @param {Element} circle - Circle element
+     */
+    triggerSpecialAnimation(circle) {
+        circle.style.animation = 'bounce 0.6s ease-in-out, avatarAppear 0.8s ease-out';
+        
+        // Reset animation after completion
+        setTimeout(() => {
+            circle.style.animation = circle.classList.contains('active') 
+                ? 'activeGlow 2s ease-in-out infinite alternate'
+                : '';
+        }, 800);
     },
 
     /**
@@ -550,6 +740,11 @@ const AnimationModule = {
                 element.classList.add('animate-in');
             }, index * CONFIG.STAGGER_DELAY);
         });
+
+        // Fallback for transaction animation
+        setTimeout(() => {
+            this.animateTransactionSection();
+        }, 2000);
     },
 
     /**
@@ -573,6 +768,17 @@ const AnimationModule = {
                 resolve();
             }, duration);
         });
+    },
+
+    /**
+     * Restart transaction animation (useful for demos)
+     */
+    restartTransactionAnimation() {
+        this.state.hasTransactionAnimated = false;
+        const transactionSection = safeQuerySelector('.expense-sec-right');
+        if (transactionSection) {
+            this.animateTransactionSection(transactionSection);
+        }
     }
 };
 
@@ -971,6 +1177,12 @@ const ZOQQApp = {
         const element = safeQuerySelector(selector);
         if (element) {
             SmoothScroll.scrollToElement(element);
+        }
+    },
+
+    restartTransactionAnimation() {
+        if (AnimationModule.state.isInitialized) {
+            AnimationModule.restartTransactionAnimation();
         }
     }
 };

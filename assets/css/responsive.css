@@ -26,6 +26,91 @@
 }
 
 /* ===================================
+   SMALL MOBILE (max-width: 480px)
+   =================================== */
+@media (max-width: 480px) {
+  .transaction-details {
+    gap: 0.5rem;
+    border-radius: 40px;
+  }
+
+  .transaction-title {
+    font-size: 0.65rem;
+  }
+
+  .transaction-status {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.55rem;
+    border-radius: 10px;
+  }
+
+  .transaction-id {
+    font-size: 0.55rem;
+  }
+
+  .per-name-text {
+    font-size: 0.6rem;
+  }
+
+  .per-name-type {
+    font-size: 0.55rem;
+  }
+
+  .transaction-amount {
+    font-size: 0.75rem;
+  }
+
+  .transaction-status-icon {
+    width: 28px;
+    height: 28px;
+    padding: 0.3rem;
+  }
+
+  .transaction-status-icon i {
+    font-size: 0.8rem;
+  }
+
+  .fa-calendar-days {
+    font-size: 0.7rem;
+    margin: 0 0.2rem;
+  }
+
+  .transaction-list {
+    height: 295px;
+  }
+
+  .expense-sec-right {
+    padding: 20px;
+  }
+
+  /* Avatar circles responsive - Small Mobile */
+  .bottom-icons {
+    gap: 0.4rem;
+    margin-top: 1rem;
+    padding: 0.8rem;
+    border-radius: 40px;
+  }
+
+  .circle {
+    width: 35px;
+    height: 35px;
+  }
+
+  .circle img {
+    width: 22px;
+    height: 22px;
+  }
+
+  .circle.active {
+    transform: scale(1.1);
+  }
+
+  .circle:hover {
+    transform: scale(1.15) translateY(-2px);
+  }
+}
+
+/* ===================================
    TABLET STYLES (768px+)
    =================================== */
 @media (min-width: 768px) {
@@ -214,6 +299,81 @@
   .expense-sec-left p {
     font-size: 1.1rem;
   }
+
+  /* Enhanced transaction styles for tablet */
+  .transaction-details {
+    border-radius: 50px;
+  }
+
+  .transaction-title {
+    font-size: 0.85rem;
+  }
+
+  .transaction-status {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.75rem;
+    border-radius: 14px;
+  }
+
+  .transaction-id {
+    font-size: 0.75rem;
+  }
+
+  .per-name-text {
+    font-size: 0.8rem;
+  }
+
+  .per-name-type {
+    font-size: 0.75rem;
+  }
+
+  .transaction-amount {
+    font-size: 0.95rem;
+  }
+
+  .transaction-status-icon {
+    width: 36px;
+    height: 36px;
+    padding: 0.45rem;
+  }
+
+  .transaction-status-icon i {
+    font-size: 1rem;
+  }
+
+  .fa-calendar-days {
+    font-size: 0.85rem;
+    margin: 0 0.35rem;
+  }
+
+  .transaction-list {
+    height: 350px;
+  }
+
+  /* Avatar circles responsive - Tablet */
+  .bottom-icons {
+    gap: 0.6rem;
+    margin-top: 1.8rem;
+    padding: 1rem;
+  }
+
+  .circle {
+    width: 45px;
+    height: 45px;
+  }
+
+  .circle img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .circle.active {
+    transform: scale(1.12);
+  }
+
+  .circle:hover {
+    transform: scale(1.18) translateY(-2px);
+  }
 }
 
 @media (min-width: 992px) {
@@ -349,10 +509,84 @@
     padding: 3rem;
   }
 
-
   .map-sec-right p,
   .expense-sec-left p {
     font-size: 1.2rem;
+  }
+
+  /* Enhanced transaction styles for desktop */
+  .transaction-details {
+    border-radius: 60px;
+  }
+
+  .transaction-title {
+    font-size: 1rem;
+  }
+
+  .transaction-status {
+    padding: 0.35rem 1rem;
+    font-size: 0.85rem;
+    border-radius: 16px;
+  }
+
+  .transaction-id {
+    font-size: 0.85rem;
+  }
+
+  .per-name-text {
+    font-size: 0.9rem;
+  }
+
+  .per-name-type {
+    font-size: 0.85rem;
+  }
+
+  .transaction-amount {
+    font-size: 1.1rem;
+  }
+
+  .transaction-status-icon {
+    width: 44px;
+    height: 44px;
+    padding: 0.6rem;
+  }
+
+  .transaction-status-icon i {
+    font-size: 1.2rem;
+  }
+
+  .fa-calendar-days {
+    font-size: 1rem;
+    margin: 0 0.5rem;
+  }
+
+  .transaction-list {
+    height: 380px;
+  }
+
+  /* Avatar circles responsive - Desktop */
+  .bottom-icons {
+    gap: 1rem;
+    margin-top: 2.5rem;
+    padding: 1.2rem;
+  }
+
+  .circle {
+    width: 55px;
+    height: 55px;
+  }
+
+  .circle img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .circle.active {
+    transform: scale(1.2);
+  }
+
+  .circle:hover {
+    transform: scale(1.25) translateY(-4px);
   }
 }
 
