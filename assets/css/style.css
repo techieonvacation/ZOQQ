@@ -1136,13 +1136,24 @@ body.menu-open {
   transition: all 0.3s ease;
 }
 
-.transaction-item:nth-child(1) { animation-delay: 0.2s; }
-.transaction-item:nth-child(2) { animation-delay: 0.4s; }
-.transaction-item:nth-child(3) { animation-delay: 0.6s; }
-.transaction-item:nth-child(4) { animation-delay: 0.8s; }
-.transaction-item:nth-child(5) { animation-delay: 1.0s; }
-.transaction-item:nth-child(6) { animation-delay: 1.2s; }
-
+.transaction-item:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.transaction-item:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.transaction-item:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.transaction-item:nth-child(4) {
+  animation-delay: 0.8s;
+}
+.transaction-item:nth-child(5) {
+  animation-delay: 1s;
+}
+.transaction-item:nth-child(6) {
+  animation-delay: 1.2s;
+}
 
 .transaction-details {
   background-color: #fff;
@@ -1280,12 +1291,22 @@ body.menu-open {
 }
 .transaction-list::before {
   top: 0;
-  background: linear-gradient(180deg, #9c77cf0d 0%, rgba(156, 119, 207, 0.02) 70%, transparent 100%);
+  background: linear-gradient(
+    180deg,
+    #9c77cf0d 0%,
+    rgba(156, 119, 207, 0.02) 70%,
+    transparent 100%
+  );
 }
 
 .transaction-list::after {
   bottom: 0;
-  background: linear-gradient(0deg, #9c77cf0d 0%, rgba(156, 119, 207, 0.02) 70%, transparent 100%);
+  background: linear-gradient(
+    0deg,
+    #9c77cf0d 0%,
+    rgba(156, 119, 207, 0.02) 70%,
+    transparent 100%
+  );
 }
 
 /* Bottom avatar circles animation */
@@ -1295,21 +1316,22 @@ body.menu-open {
   justify-content: center;
   margin-top: 1.5rem;
   align-items: center;
-  padding: 1rem;
-  background: rgba(156, 119, 207, 0.05);
-  border-radius: 50px;
   position: relative;
-  overflow: hidden;
 }
 
 .bottom-icons::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.1), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(139, 92, 246, 0.1),
+    transparent
+  );
   animation: shimmerEffect 3s ease-in-out infinite;
   animation-delay: 2s;
 }
@@ -1318,9 +1340,6 @@ body.menu-open {
   position: relative;
   width: 50px;
   height: 50px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #ffffff, #f8fafc);
-  border: 2px solid #e2e8f0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1329,39 +1348,8 @@ body.menu-open {
   opacity: 0;
   transform: scale(0) rotate(180deg);
   animation: avatarAppear 0.8s ease-out forwards;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
-
-.circle::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));
-  border-radius: 50%;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 1;
-}
-
-.circle::after {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(45deg, #8b5cf6, #ec4899, #06b6d4, #10b981);
-  border-radius: 50%;
-  opacity: 0;
-  z-index: -1;
-  animation: rotateGradient 4s linear infinite;
-  animation-play-state: paused;
-}
-
 .circle img {
   width: 32px;
   height: 32px;
@@ -1374,37 +1362,35 @@ body.menu-open {
 }
 
 /* Animation delays for staggered appearance */
-.circle:nth-child(1) { 
+.circle:nth-child(1) {
   animation-delay: 1.5s;
 }
-.circle:nth-child(2) { 
+.circle:nth-child(2) {
   animation-delay: 1.7s;
 }
-.circle:nth-child(3) { 
+.circle:nth-child(3) {
   animation-delay: 1.9s;
 }
-.circle:nth-child(4) { 
+.circle:nth-child(4) {
   animation-delay: 2.1s;
+  width: 70px;
+  height: 64px;
 }
-.circle:nth-child(5) { 
+.circle:nth-child(4) img {
+  width: 60px;
+  height: 60px;
+}
+.circle:nth-child(5) {
   animation-delay: 2.3s;
 }
-.circle:nth-child(6) { 
+.circle:nth-child(6) {
   animation-delay: 2.5s;
 }
-.circle:nth-child(7) { 
+.circle:nth-child(7) {
   animation-delay: 2.7s;
 }
 
 /* Active state */
-.circle.active {
-  background: linear-gradient(135deg, #8b5cf6, #ec4899);
-  border-color: #8b5cf6;
-  transform: scale(1.15);
-  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
-  animation: activeGlow 2s ease-in-out infinite alternate;
-}
-
 .circle.active::before {
   opacity: 1;
 }
@@ -1417,13 +1403,6 @@ body.menu-open {
 .circle.active img {
   filter: grayscale(0%) brightness(1.1);
   transform: scale(1.05);
-}
-
-/* Hover effects */
-.circle:hover {
-  transform: scale(1.2) translateY(-3px);
-  border-color: #8b5cf6;
-  box-shadow: 0 12px 30px rgba(139, 92, 246, 0.25);
 }
 
 .circle:hover::before {
@@ -1498,7 +1477,11 @@ body.menu-open {
 }
 
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
     transform: translateY(0) scale(1);
   }
   40% {
@@ -1557,17 +1540,59 @@ body.menu-open {
 @keyframes avatarAppear {
   0% {
     opacity: 0;
-    transform: scale(0) rotate(180deg);
     filter: blur(3px);
   }
   50% {
     opacity: 0.8;
-    transform: scale(1.2) rotate(10deg);
     filter: blur(1px);
   }
   100% {
     opacity: 1;
-    transform: scale(1) rotate(0deg);
+    filter: blur(0px);
+  }
+}
+
+/* Specific animations for odd/even circles to maintain zig zag */
+.circle:nth-child(odd) {
+  animation: avatarAppearOdd 0.8s ease-out forwards;
+}
+
+.circle:nth-child(even) {
+  animation: avatarAppearEven 0.8s ease-out forwards;
+}
+
+@keyframes avatarAppearOdd {
+  0% {
+    opacity: 0;
+    transform: translateY(-15px) scale(0) rotate(180deg);
+    filter: blur(3px);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(-15px) scale(1.2) rotate(10deg);
+    filter: blur(1px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-15px) scale(1) rotate(0deg);
+    filter: blur(0px);
+  }
+}
+
+@keyframes avatarAppearEven {
+  0% {
+    opacity: 0;
+    transform: translateY(15px) scale(0) rotate(180deg);
+    filter: blur(3px);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(15px) scale(1.2) rotate(10deg);
+    filter: blur(1px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(15px) scale(1) rotate(0deg);
     filter: blur(0px);
   }
 }

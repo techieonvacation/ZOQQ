@@ -87,13 +87,14 @@
   .bottom-icons {
     gap: 0.4rem;
     margin-top: 1rem;
-    padding: 0.8rem;
+    padding: 1.5rem 0.8rem;
     border-radius: 40px;
+    min-height: 100px;
   }
 
   .circle {
     width: 35px;
-    height: 35px;
+    height: 29px;
   }
 
   .circle img {
@@ -101,12 +102,59 @@
     height: 22px;
   }
 
-  .circle.active {
-    transform: scale(1.1);
+  /* Zig zag for small mobile */
+  .circle:nth-child(odd) {
+    transform: translateY(-10px) scale(0) rotate(180deg);
   }
 
-  .circle:hover {
-    transform: scale(1.15) translateY(-2px);
+  .circle:nth-child(even) {
+    transform: translateY(10px) scale(0) rotate(180deg);
+  }
+
+  .circle:nth-child(odd).active,
+  .circle:nth-child(odd):hover {
+    transform: translateY(-10px) scale(1.1);
+  }
+
+  .circle:nth-child(even).active,
+  .circle:nth-child(even):hover {
+    transform: translateY(10px) scale(1.1);
+  }
+
+  @keyframes avatarAppearOdd {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px) scale(0) rotate(180deg);
+      filter: blur(3px);
+    }
+    50% {
+      opacity: 0.8;
+      transform: translateY(-10px) scale(1.2) rotate(10deg);
+      filter: blur(1px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(-10px) scale(1) rotate(0deg);
+      filter: blur(0px);
+    }
+  }
+
+  @keyframes avatarAppearEven {
+    0% {
+      opacity: 0;
+      transform: translateY(10px) scale(0) rotate(180deg);
+      filter: blur(3px);
+    }
+    50% {
+      opacity: 0.8;
+      transform: translateY(10px) scale(1.2) rotate(10deg);
+      filter: blur(1px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(10px) scale(1) rotate(0deg);
+      filter: blur(0px);
+    }
   }
 }
 
@@ -354,7 +402,8 @@
   .bottom-icons {
     gap: 0.6rem;
     margin-top: 1.8rem;
-    padding: 1rem;
+    padding: 2rem 1rem;
+    min-height: 110px;
   }
 
   .circle {
@@ -367,12 +416,23 @@
     height: 28px;
   }
 
-  .circle.active {
-    transform: scale(1.12);
+  /* Zig zag for tablet */
+  .circle:nth-child(odd) {
+    transform: translateY(-12px) scale(0) rotate(180deg);
   }
 
-  .circle:hover {
-    transform: scale(1.18) translateY(-2px);
+  .circle:nth-child(even) {
+    transform: translateY(12px) scale(0) rotate(180deg);
+  }
+
+  .circle:nth-child(odd).active,
+  .circle:nth-child(odd):hover {
+    transform: translateY(-12px) scale(1.12);
+  }
+
+  .circle:nth-child(even).active,
+  .circle:nth-child(even):hover {
+    transform: translateY(12px) scale(1.12);
   }
 }
 
@@ -561,14 +621,15 @@
   }
 
   .transaction-list {
-    height: 380px;
+    height: 408px;
   }
 
   /* Avatar circles responsive - Desktop */
   .bottom-icons {
     gap: 1rem;
     margin-top: 2.5rem;
-    padding: 1.2rem;
+    padding: 2.5rem 1.2rem;
+    min-height: 140px;
   }
 
   .circle {
@@ -581,12 +642,59 @@
     height: 36px;
   }
 
-  .circle.active {
-    transform: scale(1.2);
+  /* Zig zag for desktop */
+  .circle:nth-child(odd) {
+    transform: translateY(-20px) scale(0) rotate(180deg);
   }
 
-  .circle:hover {
-    transform: scale(1.25) translateY(-4px);
+  .circle:nth-child(even) {
+    transform: translateY(20px) scale(0) rotate(180deg);
+  }
+
+  .circle:nth-child(odd).active,
+  .circle:nth-child(odd):hover {
+    transform: translateY(-20px) scale(1.2);
+  }
+
+  .circle:nth-child(even).active,
+  .circle:nth-child(even):hover {
+    transform: translateY(20px) scale(1.2);
+  }
+
+  @keyframes avatarAppearOdd {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px) scale(0) rotate(180deg);
+      filter: blur(3px);
+    }
+    50% {
+      opacity: 0.8;
+      transform: translateY(-20px) scale(1.2) rotate(10deg);
+      filter: blur(1px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(-20px) scale(1) rotate(0deg);
+      filter: blur(0px);
+    }
+  }
+
+  @keyframes avatarAppearEven {
+    0% {
+      opacity: 0;
+      transform: translateY(20px) scale(0) rotate(180deg);
+      filter: blur(3px);
+    }
+    50% {
+      opacity: 0.8;
+      transform: translateY(20px) scale(1.2) rotate(10deg);
+      filter: blur(1px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(20px) scale(1) rotate(0deg);
+      filter: blur(0px);
+    }
   }
 }
 
