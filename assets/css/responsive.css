@@ -87,6 +87,15 @@
     padding: 20px;
   }
 
+  /* Currency Cards Scroll - Small Mobile */
+  .map-sec-left-content {
+    height: 240px;
+  }
+
+  .currency-card-track {
+    animation-duration: 10s;
+  }
+
   /* Avatar circles responsive - Small Mobile */
   .bottom-icons {
     gap: 0.4rem;
@@ -324,6 +333,11 @@
   .stats-value {
     font-size: 2.3rem;
   }
+  
+  .stats-value.counting {
+    transform: scale(1.02);
+  }
+  
   .stats-label {
     font-size: 1.05rem;
   }
@@ -332,6 +346,11 @@
   .map-sec {
     grid-template-columns: 55% 45%;
     gap: 3rem;
+  }
+
+  /* Currency Cards Scroll - Tablet */
+  .map-sec-left-content {
+    height: 320px;
   }
   .expense-sec {
     grid-template-columns: 55% 45%;
@@ -631,6 +650,10 @@
   .stats-value {
     font-size: 2.7rem;
   }
+  
+  .stats-value.counting {
+    transform: scale(1.03);
+  }
 
   /* Integrated Solutions Section */
 
@@ -641,6 +664,11 @@
   .map-sec-right p,
   .expense-sec-left p {
     font-size: 1.2rem;
+  }
+
+  /* Currency Cards Scroll - Desktop */
+  .map-sec-left-content {
+    height: 380px;
   }
 
   /* Enhanced transaction styles for desktop */

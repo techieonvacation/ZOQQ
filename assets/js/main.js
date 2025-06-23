@@ -458,6 +458,132 @@ const ScrollEffects = {
 
 /**
  * ===================================
+ * STATS COUNTER ANIMATION MODULE
+ * ===================================
+ */
+const StatsCounter = {
+    // State management
+    state: {
+        observer: null,
+        isInitialized: false,
+        animatedStats: new Set()
+    },
+
+    /**
+     * Initialize stats counter
+     */
+    init() {
+        if (this.state.isInitialized) return;
+        
+        try {
+            this.setupObserver();
+            this.state.isInitialized = true;
+            console.log('✅ StatsCounter module initialized successfully');
+        } catch (error) {
+            console.error('❌ Error initializing StatsCounter:', error);
+        }
+    },
+
+    /**
+     * Setup intersection observer for stats counters
+     */
+    setupObserver() {
+        if (!('IntersectionObserver' in window)) {
+            console.warn('⚠️ IntersectionObserver not supported, using fallback');
+            this.fallbackAnimation();
+            return;
+        }
+
+        const options = {
+            threshold: 0.3,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        this.state.observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !this.state.animatedStats.has(entry.target)) {
+                    this.animateCounter(entry.target);
+                    this.state.animatedStats.add(entry.target);
+                }
+            });
+        }, options);
+
+        const statsValues = safeQuerySelectorAll('.stats-value[data-target]');
+        if (statsValues.length > 0) {
+            statsValues.forEach(stat => this.state.observer.observe(stat));
+            console.log(`📊 Observing ${statsValues.length} stats counters`);
+        }
+    },
+
+    /**
+     * Animate counter from 0 to target value
+     * @param {Element} element - Stats value element
+     */
+    animateCounter(element) {
+        const target = parseFloat(element.dataset.target);
+        const duration = parseInt(element.dataset.duration) || 2000;
+        const decimals = parseInt(element.dataset.decimals) || 0;
+        const prefix = element.dataset.prefix || '';
+        const suffix = element.dataset.suffix || '';
+        
+        if (isNaN(target)) {
+            console.error('❌ Invalid target value for counter:', element);
+            return;
+        }
+        
+        const startTime = performance.now();
+        const startValue = 0;
+        
+        element.classList.add('counting');
+        console.log(`🔢 Starting counter animation: ${startValue} → ${target}`);
+
+        const updateCounter = (currentTime) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            // Easing function for smooth animation (easeOutQuart)
+            const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+            const currentValue = startValue + (target - startValue) * easeOutQuart;
+            
+            // Format the number based on decimals
+            const formattedValue = decimals > 0 
+                ? currentValue.toFixed(decimals)
+                : Math.floor(currentValue);
+            
+            element.textContent = `${prefix}${formattedValue}${suffix}`;
+            
+            if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+            } else {
+                // Animation completed
+                element.classList.remove('counting');
+                element.classList.add('completed');
+                
+                console.log(`✅ Counter animation completed: ${prefix}${target}${suffix}`);
+                
+                // Remove completed class after animation
+                setTimeout(() => {
+                    element.classList.remove('completed');
+                }, 600);
+            }
+        };
+
+        requestAnimationFrame(updateCounter);
+    },
+
+    /**
+     * Fallback animation for browsers without IntersectionObserver
+     */
+    fallbackAnimation() {
+        const statsValues = safeQuerySelectorAll('.stats-value[data-target]');
+        statsValues.forEach((stat, index) => {
+            setTimeout(() => this.animateCounter(stat), 500 + (index * 200));
+        });
+    }
+};
+
+/**
+ * ===================================
  * ANIMATION MODULE
  * ===================================
  */
@@ -1428,6 +1554,7 @@ const ZOQQApp = {
         const modules = [
             { name: 'MobileNavigation', module: MobileNavigation },
             { name: 'ScrollEffects', module: ScrollEffects },
+            { name: 'StatsCounter', module: StatsCounter },
             { name: 'AnimationModule', module: AnimationModule },
             { name: 'SmoothScroll', module: SmoothScroll },
             { name: 'NavigationStates', module: NavigationStates },
@@ -1539,6 +1666,7 @@ if (window.location.hostname === 'localhost' || window.location.hostname === '12
         modules: {
             MobileNavigation,
             ScrollEffects,
+            StatsCounter,
             AnimationModule,
             SmoothScroll,
             NavigationStates,

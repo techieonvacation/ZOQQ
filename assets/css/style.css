@@ -823,6 +823,32 @@ body.menu-open {
   margin-bottom: 0.5rem;
   letter-spacing: -0.01em;
   font-family: "DM Sans", sans-serif;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.stats-value.counting {
+  transform: scale(1.05);
+}
+
+.stats-value.completed {
+  transform: scale(1);
+  animation: countCompleted 0.6s ease-out;
+}
+
+@keyframes countCompleted {
+  0% {
+    transform: scale(1.1);
+    color: #8b5cf6;
+  }
+  50% {
+    transform: scale(1.15);
+    color: #a855f7;
+  }
+  100% {
+    transform: scale(1);
+    color: #7c3aed;
+  }
 }
 .stats-label {
   font-size: 1rem;
@@ -1243,6 +1269,39 @@ body.menu-open {
   justify-content: center;
   width: 100%;
   z-index: 2;
+  height: 280px;
+  overflow: hidden;
+}
+
+/* Currency Cards Infinite Scroll */
+.currency-cards-scroll {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.currency-card-track {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  animation: scrollUpInfinite 12s linear infinite;
+  will-change: transform;
+}
+
+/* Infinite upward scroll animation */
+@keyframes scrollUpInfinite {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+/* Pause animation on hover for better UX */
+.currency-cards-scroll:hover .currency-card-track {
+  animation-play-state: paused;
 }
 
 .map-sec-card h3 {
