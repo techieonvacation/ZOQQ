@@ -339,7 +339,8 @@
   }
 
   .map-sec-right h2,
-  .expense-sec-left h2 {
+  .expense-sec-left h2,
+  .search-sec-left h2 {
     font-size: 2.2rem;
   }
 
@@ -468,7 +469,8 @@
   }
 
   .map-sec-right h2,
-  .expense-sec-left h2 {
+  .expense-sec-left h2,
+  .search-sec-left h2 {
     font-size: 2.5rem;
   }
 }
@@ -944,5 +946,158 @@
   .product-box {
     min-height: 360px;
     padding: 2.5rem 2rem 3rem 2rem;
+  }
+}
+
+/* ===================================
+   PLATFORM SECTION RESPONSIVE
+   =================================== */
+
+/* TABLET STYLES (768px+) */
+@media (min-width: 768px) {
+  .platform-steps {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 4rem;
+  }
+
+
+  .step-number {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .feature-item span {
+    font-size: 1.05rem;
+  }
+
+  /* Third step spans full width on tablet */
+  .platform-step:nth-child(3) {
+    grid-column: 1 / -1;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+/* DESKTOP STYLES (1024px+) */
+@media (min-width: 1024px) {
+  .platform-sec {
+    padding: 4rem 0 5rem 0;
+  }
+
+  .platform-steps {
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 5rem;
+  }
+
+  .platform-step {
+    padding: 2rem 2rem;
+    border-radius: 28px;
+  }
+
+  .platform-step:nth-child(3) {
+    grid-column: auto;
+    max-width: none;
+    margin: 0;
+  }
+
+  .step-header {
+    margin-bottom: 1rem;
+    gap: 1rem;
+  }
+
+  .step-title {
+    line-height: 1.2;
+  }
+
+  .step-number {
+    font-size: 1rem;
+    align-self: flex-end;
+  }
+
+  .feature-item i {
+    width: 24px;
+    height: 24px;
+    font-size: 1.1rem;
+  }
+
+  .feature-item span {
+    line-height: 1.5;
+  }
+
+  /* Enhanced hover effects for desktop */
+  .platform-step:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(160, 89, 255, 0.15);
+  }
+
+  .platform-step:hover .step-number {
+    transform: scale(1.08);
+  }
+}
+
+/* LARGE DESKTOP (1200px+) */
+@media (min-width: 1200px) {
+  .platform-steps {
+    margin-top: 6rem;
+  }
+
+  .platform-step {
+    padding: 2rem 2rem;
+    border-radius: 32px;
+  }
+
+  .feature-item i {
+    width: 26px;
+    height: 26px;
+    font-size: 1.2rem;
+  }
+}
+
+/* SMALL MOBILE ADJUSTMENTS (max-width: 480px) */
+@media (max-width: 480px) {
+  .platform-sec {
+    padding: 2rem 0;
+  }
+
+  .platform-steps {
+    gap: 0.5rem;
+    margin-top: 2rem;
+  }
+
+  .platform-step {
+    padding: 1.5rem 1rem;
+    border-radius: 16px;
+  }
+
+  .step-header {
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .step-title {
+    font-size: 1rem;
+  }
+
+  .step-number {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    align-self: flex-start;
+  }
+
+  .feature-item {
+    padding: 0.5rem 0;
+    gap: 0.5rem;
+  }
+
+  .feature-item i {
+    width: 18px;
+    height: 18px;
+    font-size: 0.9rem;
+  }
+
+  .feature-item span {
+    font-size: 0.8rem;
+    white-space: nowrap;
   }
 }
