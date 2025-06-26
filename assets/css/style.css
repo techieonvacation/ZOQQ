@@ -3615,10 +3615,264 @@ body.menu-open {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  }
-  
-  /* Card flying animations */
-  @keyframes cardFrontCycle {
+    }
+
+   /* ===================================
+      PAYOUT INTERFACE SECTION
+      =================================== */
+
+   .payout-interface-container {
+     position: relative;
+     width: 100%;
+     min-height: 350px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     margin-top: 1rem;
+     overflow: hidden;
+   }
+
+   /* Floating Invoice Boxes */
+   .floating-invoice {
+     position: absolute;
+     z-index: 1;
+     opacity: 0.9;
+   }
+
+   .floating-left {
+     top: 20%;
+     left: -5%;
+     animation: floatInvoiceLeft 8s ease-in-out infinite;
+   }
+
+   .floating-right {
+     top: 70%;
+     right: -5%;   
+     animation: floatInvoiceRight 10s ease-in-out infinite 2s;
+   }
+
+   .invoice-box {
+     background: #fff;
+     border-radius: 12px;
+     padding: 1rem;
+     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+     border: 1px solid rgba(0, 0, 0, 0.08);
+     display: flex;
+     align-items: center;
+     gap: 0.75rem;
+     min-width: 140px;
+     transform: rotate(-8deg);
+   }
+
+   .floating-right .invoice-box {
+     transform: rotate(8deg);
+   }
+
+   .invoice-icon {
+     width: 35px;
+     height: 35px;
+     background: linear-gradient(135deg, #6366f1, #8b5cf6);
+     border-radius: 8px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     color: #fff;
+   }
+
+   .invoice-icon i {
+     font-size: 1rem;
+   }
+
+   .invoice-info {
+     display: flex;
+     flex-direction: column;
+   }
+
+   .invoice-label {
+     font-size: 0.85rem;
+     font-weight: 600;
+     color: #1f2937;
+     margin-bottom: 0.2rem;
+   }
+
+   .invoice-id {
+     font-size: 0.7rem;
+     color: #6b7280;
+     font-weight: 500;
+   }
+
+   /* Main Invoices Container */
+   .main-invoices-container {
+     position: relative;
+     width: 280px;
+     background: #fff;
+     border-radius: 16px;
+     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+     overflow: hidden;
+     z-index: 10;
+     border: 1px solid rgba(0, 0, 0, 0.08);
+   }
+
+   .invoices-header {
+     padding: 1.2rem 1.5rem 0.8rem;
+     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+   }
+
+   .invoices-header h4 {
+     font-size: 1.1rem;
+     font-weight: 600;
+     color: #1f2937;
+     margin: 0;
+   }
+
+   .invoices-scroll-container {
+     height: 240px;
+     overflow: hidden;
+   }
+
+   .invoices-list {
+     animation: scrollInvoicesUp 15s linear infinite;
+   }
+
+   .invoice-item {
+     display: flex;
+     align-items: center;
+     padding: 1rem 1.5rem;
+     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+     gap: 1rem;
+     transition: all 0.3s ease;
+   }
+
+   .invoice-item:hover {
+     background: rgba(99, 102, 241, 0.02);
+   }
+
+   .invoice-icon-main {
+     width: 32px;
+     height: 32px;
+     background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+     border-radius: 8px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     color: #6b7280;
+     flex-shrink: 0;
+   }
+
+   .invoice-icon-main i {
+     font-size: 0.9rem;
+   }
+
+   .invoice-details {
+     flex: 1;
+     min-width: 0;
+   }
+
+   .invoice-type {
+     font-size: 0.85rem;
+     font-weight: 600;
+     color: #1f2937;
+     margin-bottom: 0.2rem;
+   }
+
+   .invoice-number {
+     font-size: 0.75rem;
+     color: #6b7280;
+     font-weight: 500;
+   }
+
+   .invoice-status {
+     padding: 0.25rem 0.75rem;
+     border-radius: 20px;
+     font-size: 0.7rem;
+     font-weight: 600;
+     text-transform: uppercase;
+     letter-spacing: 0.5px;
+     flex-shrink: 0;
+   }
+
+   .invoice-status.pending {
+     background: #fef3c7;
+     color: #92400e;
+   }
+
+   .invoice-status.review {
+     background: #dbeafe;
+     color: #1e40af;
+   }
+
+   .invoice-status.paid {
+     background: #d1fae5;
+     color: #065f46;
+   }
+
+   .invoice-amount {
+     font-size: 0.85rem;
+     font-weight: 700;
+     color: #1f2937;
+     text-align: right;
+     flex-shrink: 0;
+     min-width: 80px;
+   }
+
+   .invoice-total {
+     font-size: 0.75rem;
+     color: #6b7280;
+     text-align: right;
+     margin-top: 0.2rem;
+   }
+
+   /* Floating Animations */
+   @keyframes floatInvoiceLeft {
+     0%, 100% {
+       transform: translateY(0px) rotate(-8deg);
+       opacity: 0.9;
+     }
+     25% {
+       transform: translateY(-15px) rotate(-12deg);
+       opacity: 1;
+     }
+     50% {
+       transform: translateY(-8px) rotate(-5deg);
+       opacity: 0.95;
+     }
+     75% {
+       transform: translateY(-20px) rotate(-10deg);
+       opacity: 1;
+     }
+   }
+
+   @keyframes floatInvoiceRight {
+     0%, 100% {
+       transform: translateY(0px) rotate(8deg);
+       opacity: 0.9;
+     }
+     25% {
+       transform: translateY(-20px) rotate(12deg);
+       opacity: 1;
+     }
+     50% {
+       transform: translateY(-5px) rotate(5deg);
+       opacity: 0.95;
+     }
+     75% {
+       transform: translateY(-18px) rotate(10deg);
+       opacity: 1;
+     }
+   }
+
+   /* Infinite Scroll Animation */
+   @keyframes scrollInvoicesUp {
+     0% {
+       transform: translateY(0);
+     }
+     100% {
+       transform: translateY(-50%);
+     }
+   }
+   
+   /* Card flying animations */
+   @keyframes cardFrontCycle {
     0%, 25% {
       transform: translateZ(20px) rotateY(0deg) scale(1);
       z-index: 3;

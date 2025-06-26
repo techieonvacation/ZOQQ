@@ -88,6 +88,95 @@
     font-size: 0.5rem;
   }
 
+  /* Payout Interface - Mobile */
+  .payout-interface-container {
+    min-height: 280px;
+  }
+
+  .floating-left {
+    left: 2%;
+    top: 15%;
+  }
+
+  .floating-right {
+    right: 2%;
+    top: 75%;
+  }
+
+  .invoice-box {
+    padding: 0.75rem;
+    min-width: 120px;
+  }
+
+  .invoice-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .invoice-icon i {
+    font-size: 0.85rem;
+  }
+
+  .invoice-label {
+    font-size: 0.75rem;
+  }
+
+  .invoice-id {
+    font-size: 0.65rem;
+  }
+
+  .main-invoices-container {
+    width: 250px;
+  }
+
+  .invoices-header {
+    padding: 1rem 1.2rem 0.6rem;
+  }
+
+  .invoices-header h4 {
+    font-size: 1rem;
+  }
+
+  .invoices-scroll-container {
+    height: 200px;
+  }
+
+  .invoice-item {
+    padding: 0.8rem 1.2rem;
+    gap: 0.8rem;
+  }
+
+  .invoice-icon-main {
+    width: 28px;
+    height: 28px;
+  }
+
+  .invoice-icon-main i {
+    font-size: 0.8rem;
+  }
+
+  .invoice-type {
+    font-size: 0.8rem;
+  }
+
+  .invoice-number {
+    font-size: 0.7rem;
+  }
+
+  .invoice-status {
+    padding: 0.2rem 0.6rem;
+    font-size: 0.65rem;
+  }
+
+  .invoice-amount {
+    font-size: 0.8rem;
+    min-width: 70px;
+  }
+
+  .invoice-total {
+    font-size: 0.7rem;
+  }
+
   .chat-interface {
     width: 250px;
   }
@@ -1452,6 +1541,95 @@
     font-size: 0.55rem;
   }
 
+  /* Payout Interface - Tablet */
+  .payout-interface-container {
+    min-height: 320px;
+  }
+
+  .floating-left {
+    left: 2%;
+    top: 18%;
+  }
+
+  .floating-right {
+    right: 2%;
+    top: 72%;
+  }
+
+  .invoice-box {
+    padding: 0.9rem;
+    min-width: 130px;
+  }
+
+  .invoice-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .invoice-icon i {
+    font-size: 0.9rem;
+  }
+
+  .invoice-label {
+    font-size: 0.8rem;
+  }
+
+  .invoice-id {
+    font-size: 0.68rem;
+  }
+
+  .main-invoices-container {
+    width: 300px;
+  }
+
+  .invoices-header {
+    padding: 1.1rem 1.4rem 0.7rem;
+  }
+
+  .invoices-header h4 {
+    font-size: 1.05rem;
+  }
+
+  .invoices-scroll-container {
+    height: 320px;
+  }
+
+  .invoice-item {
+    padding: 0.9rem 1.4rem;
+    gap: 0.9rem;
+  }
+
+  .invoice-icon-main {
+    width: 30px;
+    height: 30px;
+  }
+
+  .invoice-icon-main i {
+    font-size: 0.85rem;
+  }
+
+  .invoice-type {
+    font-size: 0.82rem;
+  }
+
+  .invoice-number {
+    font-size: 0.72rem;
+  }
+
+  .invoice-status {
+    padding: 0.22rem 0.65rem;
+    font-size: 0.68rem;
+  }
+
+  .invoice-amount {
+    font-size: 0.82rem;
+    min-width: 75px;
+  }
+
+  .invoice-total {
+    font-size: 0.72rem;
+  }
+
   .chat-interface {
     width: 320px;
   }
@@ -1636,6 +1814,95 @@
   .bg-card .card-holder,
   .bg-card .card-expiry {
     font-size: 0.65rem;
+  }
+
+  /* Payout Interface - Desktop */
+  .payout-interface-container {
+    min-height: 380px;
+  }
+
+  .floating-left {
+    left: 2%;
+    top: 20%;
+  }
+
+  .floating-right {
+    right: 2%;
+    top: 70%;
+  }
+
+  .invoice-box {
+    padding: 1.1rem;
+    min-width: 150px;
+  }
+
+  .invoice-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .invoice-icon i {
+    font-size: 1.1rem;
+  }
+
+  .invoice-label {
+    font-size: 0.9rem;
+  }
+
+  .invoice-id {
+    font-size: 0.75rem;
+  }
+
+  .main-invoices-container {
+    width: 320px;
+  }
+
+  .invoices-header {
+    padding: 1.3rem 1.6rem 0.9rem;
+  }
+
+  .invoices-header h4 {
+    font-size: 1.15rem;
+  }
+
+  .invoices-scroll-container {
+    height: 400px;
+  }
+
+  .invoice-item {
+    padding: 1.1rem 1.6rem;
+    gap: 1.1rem;
+  }
+
+  .invoice-icon-main {
+    width: 34px;
+    height: 34px;
+  }
+
+  .invoice-icon-main i {
+    font-size: 0.95rem;
+  }
+
+  .invoice-type {
+    font-size: 0.9rem;
+  }
+
+  .invoice-number {
+    font-size: 0.78rem;
+  }
+
+  .invoice-status {
+    padding: 0.28rem 0.8rem;
+    font-size: 0.72rem;
+  }
+
+  .invoice-amount {
+    font-size: 0.9rem;
+    min-width: 85px;
+  }
+
+  .invoice-total {
+    font-size: 0.78rem;
   }
 
   .chat-interface {

@@ -373,8 +373,7 @@
                                 <div class="chat-header">
                                     <div class="agent-info">
                                         <div class="agent-avatar">
-                                            <img src="/assets/images/manager.png"
-                                                alt="Help Manager">
+                                            <img src="/assets/images/manager.png" alt="Help Manager">
                                             <div class="status-indicator"></div>
                                         </div>
                                         <div class="agent-details">
@@ -396,8 +395,7 @@
                                 <div class="chat-messages">
                                     <div class="message agent-message" id="agentMessage1">
                                         <div class="message-avatar">
-                                            <img src="/assets/images/manager.png"
-                                                alt="Agent">
+                                            <img src="/assets/images/manager.png" alt="Agent">
                                         </div>
                                         <div class="message-content">
                                             <div class="message-bubble">
@@ -413,15 +411,13 @@
                                             </div>
                                         </div>
                                         <div class="message-avatar">
-                                            <img src="/assets/images/user-dp.jpg"
-                                                alt="User">
+                                            <img src="/assets/images/user-dp.jpg" alt="User">
                                         </div>
                                     </div>
 
                                     <div class="message agent-message" id="agentMessage2">
                                         <div class="message-avatar">
-                                            <img src="/assets/images/user-dp.jpg"
-                                                alt="Agent">
+                                            <img src="/assets/images/user-dp.jpg" alt="Agent">
                                         </div>
                                         <div class="message-content">
                                             <div class="message-bubble">
@@ -450,29 +446,146 @@
                         <p>Our Payout solution automates and simplifies all your outgoing payments, ensuring accuracy,
                             speed, and global reach.</p>
                         <a href="#" class="learn-more">Learn More &rarr;</a>
-                        <div class="product-slider">
-                            <div class="slider-card">
-                                <h3 class="slider-card-title">Total Balance</h3>
-                                <p class="balance">25,647.00 <span class="currency">USD</span></p>
-                                <div class="slider-card-btn">
-                                    <button class="btn"><i class="fa-solid fa-wallet"></i>Send Money</button>
-                                    <button class="btn"><i class="fa-solid fa-wallet"></i>Receive Money</button>
+                        <div class="payout-interface-container">
+                            <!-- Floating Left Invoice Box -->
+                            <div class="floating-invoice floating-left">
+                                <div class="invoice-box">
+                                    <div class="invoice-icon">
+                                        <i class="fa-solid fa-file-invoice"></i>
+                                    </div>
+                                    <div class="invoice-info">
+                                        <div class="invoice-label">Invoice</div>
+                                        <div class="invoice-id">#INV-12345</div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="slider-card">
-                                <h3 class="slider-card-title">Total Balance</h3>
-                                <p class="balance">25,647.00 <span class="currency">USD</span></p>
-                                <div class="slider-card-btn">
-                                    <button class="btn"><i class="fa-solid fa-wallet"></i>Send Money</button>
-                                    <button class="btn"><i class="fa-solid fa-wallet"></i>Receive Money</button>
+
+                            <!-- Floating Right Invoice Box -->
+                            <div class="floating-invoice floating-right">
+                                <div class="invoice-box">
+                                    <div class="invoice-icon">
+                                        <i class="fa-solid fa-receipt"></i>
+                                    </div>
+                                    <div class="invoice-info">
+                                        <div class="invoice-label">Bill</div>
+                                        <div class="invoice-id">#INV-12345</div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="slider-card">
-                                <h3 class="slider-card-title">Total Balance</h3>
-                                <p class="balance">25,647.00 <span class="currency">USD</span></p>
-                                <div class="slider-card-btn">
-                                    <button class="btn"><i class="fa-solid fa-wallet"></i>Send Money</button>
-                                    <button class="btn"><i class="fa-solid fa-wallet"></i>Receive Money</button>
+
+                            <!-- Main Invoices Container -->
+                            <div class="main-invoices-container">
+                                <div class="invoices-header">
+                                    <h4>Invoices</h4>
+                                </div>
+                                <div class="invoices-scroll-container">
+                                    <div class="invoices-list">
+                                        <!-- Invoice Item 1 -->
+                                        <div class="invoice-item">
+                                            <div class="invoice-icon-main">
+                                                <i class="fa-solid fa-file-invoice"></i>
+                                            </div>
+                                            <div class="invoice-details">
+                                                <div class="invoice-type">Invoice</div>
+                                                <div class="invoice-number">#INV-12345</div>
+                                            </div>
+                                            <div class="invoice-status pending">Pending</div>
+                                            <div class="invoice-amount">-2,321.59 EUR</div>
+                                        </div>
+
+                                        <!-- Invoice Item 2 -->
+                                        <div class="invoice-item">
+                                            <div class="invoice-icon-main">
+                                                <i class="fa-solid fa-receipt"></i>
+                                            </div>
+                                            <div class="invoice-details">
+                                                <div class="invoice-type">Bill</div>
+                                                <div class="invoice-number">#INV-12345</div>
+                                            </div>
+                                            <div class="invoice-status review">Review</div>
+                                            <div class="invoice-amount">-2,321.59 EUR</div>
+                                            <div class="invoice-total">321.59 EUR</div>
+                                        </div>
+
+                                        <!-- Invoice Item 3 -->
+                                        <div class="invoice-item">
+                                            <div class="invoice-icon-main">
+                                                <i class="fa-solid fa-file-invoice"></i>
+                                            </div>
+                                            <div class="invoice-details">
+                                                <div class="invoice-type">Invoice</div>
+                                                <div class="invoice-number">#INV-12345</div>
+                                            </div>
+                                            <div class="invoice-status paid">Paid</div>
+                                            <div class="invoice-amount">-2,321.59 EUR</div>
+                                            <div class="invoice-total">-2,321.59 EUR</div>
+                                        </div>
+
+                                        <!-- Duplicate items for infinite scroll -->
+                                        <div class="invoice-item">
+                                            <div class="invoice-icon-main">
+                                                <i class="fa-solid fa-file-invoice"></i>
+                                            </div>
+                                            <div class="invoice-details">
+                                                <div class="invoice-type">Invoice</div>
+                                                <div class="invoice-number">#INV-98765</div>
+                                            </div>
+                                            <div class="invoice-status pending">Pending</div>
+                                            <div class="invoice-amount">-1,850.00 EUR</div>
+                                        </div>
+
+                                        <div class="invoice-item">
+                                            <div class="invoice-icon-main">
+                                                <i class="fa-solid fa-receipt"></i>
+                                            </div>
+                                            <div class="invoice-details">
+                                                <div class="invoice-type">Bill</div>
+                                                <div class="invoice-number">#INV-54321</div>
+                                            </div>
+                                            <div class="invoice-status review">Review</div>
+                                            <div class="invoice-amount">-950.75 EUR</div>
+                                            <div class="invoice-total">950.75 EUR</div>
+                                        </div>
+
+                                        <div class="invoice-item">
+                                            <div class="invoice-icon-main">
+                                                <i class="fa-solid fa-file-invoice"></i>
+                                            </div>
+                                            <div class="invoice-details">
+                                                <div class="invoice-type">Invoice</div>
+                                                <div class="invoice-number">#INV-11223</div>
+                                            </div>
+                                            <div class="invoice-status paid">Paid</div>
+                                            <div class="invoice-amount">-3,500.00 EUR</div>
+                                            <div class="invoice-total">-3,500.00 EUR</div>
+                                        </div>
+
+                                        <!-- More duplicate items for seamless scroll -->
+                                        <div class="invoice-item">
+                                            <div class="invoice-icon-main">
+                                                <i class="fa-solid fa-file-invoice"></i>
+                                            </div>
+                                            <div class="invoice-details">
+                                                <div class="invoice-type">Invoice</div>
+                                                <div class="invoice-number">#INV-12345</div>
+                                            </div>
+                                            <div class="invoice-status pending">Pending</div>
+                                            <div class="invoice-amount">-2,321.59 EUR</div>
+                                        </div>
+
+                                        <div class="invoice-item">
+                                            <div class="invoice-icon-main">
+                                                <i class="fa-solid fa-receipt"></i>
+                                            </div>
+                                            <div class="invoice-details">
+                                                <div class="invoice-type">Bill</div>
+                                                <div class="invoice-number">#INV-12345</div>
+                                            </div>
+                                            <div class="invoice-status review">Review</div>
+                                            <div class="invoice-amount">-2,321.59 EUR</div>
+                                            <div class="invoice-total">321.59 EUR</div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
