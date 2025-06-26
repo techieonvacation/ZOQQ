@@ -1,0 +1,108 @@
+/**
+ * ===================================
+ * ZOQQ PERFORMANCE CSS
+ * Production Optimizations
+ * ===================================
+ */
+
+/* Critical performance styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Optimize font loading */
+@font-display: swap;
+
+/* GPU acceleration for animations */
+.animate-in,
+.mobile-menu,
+.circle,
+.transaction-item {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+}
+
+/* Remove will-change after animation */
+.animate-in.animation-complete {
+    will-change: auto;
+}
+
+/* Optimize scroll performance */
+.header {
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+/* Efficient transitions */
+.mobile-menu-toggle,
+.nav-link,
+.cta-button {
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Reduce reflows */
+.stats-value {
+    min-width: 4ch;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Optimize images */
+img {
+    max-width: 100%;
+    height: auto;
+    loading: lazy;
+}
+
+/* Critical above-fold content */
+.hero-section {
+    contain: layout style paint;
+}
+
+/* Reduce paint operations */
+.transaction-list {
+    transform: translateZ(0);
+    overflow: hidden;
+}
+
+/* Optimize animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 30px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes rippleExpand {
+    from {
+        width: 0;
+        height: 0;
+        opacity: 0.8;
+    }
+    to {
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+    }
+}
+
+/* Efficient mobile styles */
+@media (max-width: 767px) {
+    .mobile-menu {
+        contain: layout style;
+    }
+}
+
+/* Print styles optimization */
+@media print {
+    .mobile-menu,
+    .mobile-menu-toggle,
+    .search-interface {
+        display: none !important;
+    }
+} 
