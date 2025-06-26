@@ -7,7 +7,7 @@
 /* ===================================
    NAVIGATION STYLES - MOBILE
    =================================== */
-.main{
+.main {
   overflow: hidden;
 }
 .header {
@@ -177,7 +177,7 @@
   display: flex;
   opacity: 1;
   visibility: visible;
-  transform: translateY(0); 
+  transform: translateY(0);
   height: 100vh;
 }
 
@@ -885,16 +885,6 @@ body.menu-open {
   flex-direction: column;
   align-items: flex-start;
 }
-.product-box h3 {
-  font-weight: 600;
-  margin-bottom: 8px;
-  font-size: 1.2rem;
-}
-.product-box p {
-  font-size: 0.9rem;
-  font-weight: 400;
-  color: #000;
-}
 .product-box:nth-child(1) {
   background: linear-gradient(180deg, #faf1fc 0%, #faf1fc 100%);
   box-shadow: 0 4px 24px 0 rgba(160, 89, 255, 0.08);
@@ -947,7 +937,7 @@ body.menu-open {
   font-weight: 500;
   color: #222;
   width: 100%;
-  max-width: 366px;
+  max-width: 295px;
   height: auto;
   min-height: 140px;
   transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -959,16 +949,68 @@ body.menu-open {
   top: 50%;
   transform-origin: center center;
 }
+.title-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.fa-plus {
+  color: #222;
+  margin-right: 6px;
+}
+.acc-wrap {
+  display: flex;
+  width: 100%;
+  gap: 0.2rem;
+  justify-content: space-between;
+}
+.acc-box {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 0.5rem;
+  width: 100%;
+}
+.acc-box .currency-value {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #222;
+}
+.acc-box .map-para-wrap img {
+  width: 18px;
+  height: 18px;
+}
+.acc-box h3 {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #222;
+}
+.acc-box .map-para-wrap p {
+  font-size: 0.7rem;
+  font-weight: 300;
+  color: #222;
+}
+.acc-box .map-para-wrap span {
+  font-size: 0.7rem;
+  font-weight: 300;
+  color: #222;
+}
+.title-flex p {
+  color: #222;
+  font-size: 0.8rem;
+  font-weight: 300;
+}
 
-/* Enhanced Initial positions for 3D carousel - Properly Centered */
+/* Enhanced Initial positions for 3D carousel - Properly Centered with Half Visible Sides */
 .slider-card:nth-child(1) {
-  transform: translate(-50%, -50%) translateX(-60px) translateZ(-100px) rotateY(30deg) scale(0.85);
-  opacity: 0.65;
+  transform: translate(-50%, -50%) translateX(-50%) translateZ(-50px)
+    rotateY(15deg) scale(0.9);
+  opacity: 0.8;
   z-index: 1;
 }
 
 .slider-card:nth-child(2) {
-  transform: translate(-50%, -50%) translateY(-8px) translateZ(20px) rotateY(0deg) scale(1);
+  transform: translate(-50%, -50%) translateY(-8px) translateZ(20px)
+    rotateY(0deg) scale(1);
   opacity: 1;
   z-index: 3;
   box-shadow: 0 12px 35px 0 rgba(160, 89, 255, 0.25);
@@ -976,8 +1018,9 @@ body.menu-open {
 }
 
 .slider-card:nth-child(3) {
-  transform: translate(-50%, -50%) translateX(60px) translateZ(-100px) rotateY(-30deg) scale(0.85);
-  opacity: 0.65;
+  transform: translate(-50%, -50%) translateX(50%) translateZ(-50px)
+    rotateY(-15deg) scale(0.9);
+  opacity: 0.8;
   z-index: 1;
 }
 
@@ -986,19 +1029,27 @@ body.menu-open {
   animation: autoSlide3D 9s infinite ease-in-out;
 }
 
+/* .product-remittance .product-slider .slider-card:nth-child(1),
+.product-remittance .product-slider .slider-card:nth-child(3) {
+  height: 120px;
+} */
+
 @keyframes autoSlide3D {
-  0%, 30% {
+  0%,
+  30% {
     /* Position 1: Card 1 center, Card 2 right, Card 3 left */
   }
-  
-  33.33%, 63.33% {
+
+  33.33%,
+  63.33% {
     /* Position 2: Card 2 center, Card 3 right, Card 1 left */
   }
-  
-  66.66%, 96.66% {
+
+  66.66%,
+  96.66% {
     /* Position 3: Card 3 center, Card 1 right, Card 2 left */
   }
-  
+
   100% {
     /* Back to Position 1 */
   }
@@ -1058,34 +1109,41 @@ body.menu-open {
   animation-delay: 6.75s;
 }
 
-/* Enhanced Card 1 animation cycle - Centered */
+/* Enhanced Card 1 animation cycle - Centered with Half Visible Sides */
 @keyframes card1Cycle {
-  0%, 30% {
-    transform: translate(-50%, -50%) translateY(-8px) translateZ(20px) rotateY(0deg) scale(1);
+  0%,
+  30% {
+    transform: translate(-50%, -50%) translateY(-8px) translateZ(20px)
+      rotateY(0deg) scale(1);
     opacity: 1;
     z-index: 3;
     box-shadow: 0 12px 35px 0 rgba(160, 89, 255, 0.25);
     border: 1px solid rgba(160, 89, 255, 0.15);
   }
-  
-  33.33%, 63.33% {
-    transform: translate(-50%, -50%) translateX(-60px) translateZ(-100px) rotateY(30deg) scale(0.85);
-    opacity: 0.65;
+
+  33.33%,
+  63.33% {
+    transform: translate(-50%, -50%) translateX(-50%) translateZ(-50px)
+      rotateY(15deg) scale(0.9);
+    opacity: 0.8;
     z-index: 1;
     box-shadow: 0 8px 25px 0 rgba(160, 89, 255, 0.12);
     border: 1px solid rgba(160, 89, 255, 0.08);
   }
-  
-  66.66%, 96.66% {
-    transform: translate(-50%, -50%) translateX(60px) translateZ(-100px) rotateY(-30deg) scale(0.85);
-    opacity: 0.65;
+
+  66.66%,
+  96.66% {
+    transform: translate(-50%, -50%) translateX(50%) translateZ(-50px)
+      rotateY(-15deg) scale(0.9);
+    opacity: 0.8;
     z-index: 1;
     box-shadow: 0 8px 25px 0 rgba(160, 89, 255, 0.12);
     border: 1px solid rgba(160, 89, 255, 0.08);
   }
-  
+
   100% {
-    transform: translate(-50%, -50%) translateY(-8px) translateZ(20px) rotateY(0deg) scale(1);
+    transform: translate(-50%, -50%) translateY(-8px) translateZ(20px)
+      rotateY(0deg) scale(1);
     opacity: 1;
     z-index: 3;
     box-shadow: 0 12px 35px 0 rgba(160, 89, 255, 0.25);
@@ -1093,70 +1151,84 @@ body.menu-open {
   }
 }
 
-/* Enhanced Card 2 animation cycle - Centered */
+/* Enhanced Card 2 animation cycle - Centered with Half Visible Sides */
 @keyframes card2Cycle {
-  0%, 30% {
-    transform: translate(-50%, -50%) translateX(60px) translateZ(-100px) rotateY(-30deg) scale(0.85);
-    opacity: 0.65;
+  0%,
+  30% {
+    transform: translate(-50%, -50%) translateX(50%) translateZ(-50px)
+      rotateY(-15deg) scale(0.9);
+    opacity: 0.8;
     z-index: 1;
     box-shadow: 0 8px 25px 0 rgba(160, 89, 255, 0.12);
     border: 1px solid rgba(160, 89, 255, 0.08);
   }
-  
-  33.33%, 63.33% {
-    transform: translate(-50%, -50%) translateY(-8px) translateZ(20px) rotateY(0deg) scale(1);
+
+  33.33%,
+  63.33% {
+    transform: translate(-50%, -50%) translateY(-8px) translateZ(20px)
+      rotateY(0deg) scale(1);
     opacity: 1;
     z-index: 3;
     box-shadow: 0 12px 35px 0 rgba(160, 89, 255, 0.25);
     border: 1px solid rgba(160, 89, 255, 0.15);
   }
-  
-  66.66%, 96.66% {
-    transform: translate(-50%, -50%) translateX(-60px) translateZ(-100px) rotateY(30deg) scale(0.85);
-    opacity: 0.65;
+
+  66.66%,
+  96.66% {
+    transform: translate(-50%, -50%) translateX(-50%) translateZ(-50px)
+      rotateY(15deg) scale(0.9);
+    opacity: 0.8;
     z-index: 1;
     box-shadow: 0 8px 25px 0 rgba(160, 89, 255, 0.12);
     border: 1px solid rgba(160, 89, 255, 0.08);
   }
-  
+
   100% {
-    transform: translate(-50%, -50%) translateX(60px) translateZ(-100px) rotateY(-30deg) scale(0.85);
-    opacity: 0.65;
+    transform: translate(-50%, -50%) translateX(50%) translateZ(-50px)
+      rotateY(-15deg) scale(0.9);
+    opacity: 0.8;
     z-index: 1;
     box-shadow: 0 8px 25px 0 rgba(160, 89, 255, 0.12);
     border: 1px solid rgba(160, 89, 255, 0.08);
   }
 }
 
-/* Enhanced Card 3 animation cycle - Centered */
+/* Enhanced Card 3 animation cycle - Centered with Half Visible Sides */
 @keyframes card3Cycle {
-  0%, 30% {
-    transform: translate(-50%, -50%) translateX(-60px) translateZ(-100px) rotateY(30deg) scale(0.85);
-    opacity: 0.65;
+  0%,
+  30% {
+    transform: translate(-50%, -50%) translateX(-50%) translateZ(-50px)
+      rotateY(15deg) scale(0.9);
+    opacity: 0.8;
     z-index: 1;
     box-shadow: 0 8px 25px 0 rgba(160, 89, 255, 0.12);
     border: 1px solid rgba(160, 89, 255, 0.08);
   }
-  
-  33.33%, 63.33% {
-    transform: translate(-50%, -50%) translateX(60px) translateZ(-100px) rotateY(-30deg) scale(0.85);
-    opacity: 0.65;
+
+  33.33%,
+  63.33% {
+    transform: translate(-50%, -50%) translateX(50%) translateZ(-50px)
+      rotateY(-15deg) scale(0.9);
+    opacity: 0.8;
     z-index: 1;
     box-shadow: 0 8px 25px 0 rgba(160, 89, 255, 0.12);
     border: 1px solid rgba(160, 89, 255, 0.08);
   }
-  
-  66.66%, 96.66% {
-    transform: translate(-50%, -50%) translateY(-8px) translateZ(20px) rotateY(0deg) scale(1);
+
+  66.66%,
+  96.66% {
+    transform: translate(-50%, -50%) translateY(-8px) translateZ(20px)
+      rotateY(0deg) scale(1);
     opacity: 1;
     z-index: 3;
     box-shadow: 0 12px 35px 0 rgba(160, 89, 255, 0.25);
     border: 1px solid rgba(160, 89, 255, 0.15);
   }
-  
+
   100% {
-    transform: translate(-50%, -50%) translateX(-60px) translateZ(-100px) rotateY(30deg) scale(0.85);
-    opacity: 0.65;
+    transform: translate(-50%, -50%) translateX(-50%) translateZ(-50px)
+      rotateY(15deg) scale(0.9);
+    opacity: 0.8;
     z-index: 1;
     box-shadow: 0 8px 25px 0 rgba(160, 89, 255, 0.12);
     border: 1px solid rgba(160, 89, 255, 0.08);
