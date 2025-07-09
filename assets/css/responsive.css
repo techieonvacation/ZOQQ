@@ -30,8 +30,8 @@
 }
 
 /* ===================================
-   SMALL MOBILE (max-width: 480px)
-   =================================== */
+     SMALL MOBILE (max-width: 480px)
+     =================================== */
 @media (max-width: 480px) {
   /* Card Issuance Chat - Small Mobile */
   .card-issuance-chat-container {
@@ -382,8 +382,8 @@
 }
 
 /* ===================================
-   TABLET STYLES (768px+)
-   =================================== */
+     TABLET STYLES (768px+)
+     =================================== */
 @media (min-width: 768px) {
   .logo {
     max-width: 80px;
@@ -772,8 +772,8 @@
 }
 
 /* ===================================
-   DESKTOP STYLES (1024px+)
-   =================================== */
+     DESKTOP STYLES (1024px+)
+     =================================== */
 @media (min-width: 1024px) {
   /* Enhanced navigation */
   .nav-container {
@@ -824,8 +824,8 @@
 }
 
 /* ===================================
-   LARGE DESKTOP (1440px+)
-   =================================== */
+     LARGE DESKTOP (1440px+)
+     =================================== */
 @media (min-width: 1200px) {
   .signup-btn {
     padding: 1rem 2.5rem;
@@ -1068,8 +1068,8 @@
 }
 
 /* ===================================
-   MOBILE-SPECIFIC RESPONSIVE BEHAVIOR
-   =================================== */
+     MOBILE-SPECIFIC RESPONSIVE BEHAVIOR
+     =================================== */
 @media (max-width: 767px) {
   /* Ensure mobile menu functionality */
   .mobile-menu-toggle {
@@ -1149,8 +1149,8 @@
 }
 
 /* ===================================
-   DESKTOP-SPECIFIC BEHAVIOR
-   =================================== */
+     DESKTOP-SPECIFIC BEHAVIOR
+     =================================== */
 @media (min-width: 768px) {
   /* Force hide mobile elements on desktop */
   .mobile-menu-toggle {
@@ -1195,8 +1195,8 @@
 }
 
 /* ===================================
-   ACCESSIBILITY & PERFORMANCE
-   =================================== */
+     ACCESSIBILITY & PERFORMANCE
+     =================================== */
 
 /* Loading Animation */
 @keyframes fadeInUp {
@@ -1216,8 +1216,8 @@
 }
 
 /* ===================================
-   HIGH DPI DISPLAYS
-   =================================== */
+     HIGH DPI DISPLAYS
+     =================================== */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .hero {
     background-image: url("../images/banner-bg@2x.png");
@@ -1225,8 +1225,8 @@
 }
 
 /* ===================================
-   PRINT STYLES
-   =================================== */
+     PRINT STYLES
+     =================================== */
 @media print {
   .navbar,
   .mobile-menu,
@@ -1254,8 +1254,8 @@
 }
 
 /* ===================================
-   LANDSCAPE MOBILE ADJUSTMENTS
-   =================================== */
+     LANDSCAPE MOBILE ADJUSTMENTS
+     =================================== */
 @media (max-height: 500px) and (orientation: landscape) {
   .hero {
     min-height: 80vh;
@@ -1268,8 +1268,8 @@
 }
 
 /* ===================================
-   REDUCED MOTION PREFERENCES
-   =================================== */
+     REDUCED MOTION PREFERENCES
+     =================================== */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -1296,8 +1296,8 @@
 }
 
 /* ===================================
-   3D PRODUCT SLIDER RESPONSIVE STYLES
-   =================================== */
+     3D PRODUCT SLIDER RESPONSIVE STYLES
+     =================================== */
 
 /* SMALL MOBILE ADJUSTMENTS (max-width: 480px) */
 @media (max-width: 480px) {
@@ -1493,7 +1493,6 @@
   .card-issuance-chat-container {
     min-height: 400px;
   }
-
 
   .bg-card.card-1 {
     top: 50%;
@@ -2230,8 +2229,8 @@
 }
 
 /* ===================================
-   PLATFORM SECTION RESPONSIVE
-   =================================== */
+     PLATFORM SECTION RESPONSIVE
+     =================================== */
 
 /* TABLET STYLES (768px+) */
 @media (min-width: 768px) {
@@ -2311,6 +2310,9 @@
 
   .platform-step:hover .step-number {
     transform: scale(1.08);
+  }
+  .footer-top-left {
+    max-width: 40%;
   }
 }
 
@@ -2436,5 +2438,48 @@
   .assistant-avatar {
     width: 20px;
     height: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .footer-top {
+    padding: 3rem 0;
+  }
+
+  .footer-top-left h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-top {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+    padding: 1rem 0;
+  }
+
+  .footer-top-right {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .footer-top-left h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-contact-form {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .footer-top-left h2 {
+    font-size: 2rem;
+  }
+
+  .footer-contact-btn {
+    width: 100%;
   }
 }
